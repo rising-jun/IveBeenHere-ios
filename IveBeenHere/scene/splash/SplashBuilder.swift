@@ -7,21 +7,14 @@
 
 import Foundation
 
-protocol MapBuildingLogic {
-    typealias Destination = MapViewController
+protocol SplashBuildingLogic {
+    typealias Destination = SplashViewController
     func build() -> Destination
 }
 
-class MapBuilder: MapBuildingLogic {
+class SplashBuilder: SplashBuildingLogic {
     func build() -> Destination {
-        let viewController = MapViewController.init()
-        let viewModel = MapViewModel()
-        let mapUsecase = MapUsecase()
-        let permissionManager = PermissionManager()
-        viewModel.usecase = mapUsecase
-        mapUsecase.permissionManager = permissionManager
-        viewController.viewModel = viewModel
-        return viewController
+        return SplashViewController.instance()
     }
 }
 

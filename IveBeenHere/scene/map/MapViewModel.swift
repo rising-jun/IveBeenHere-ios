@@ -10,6 +10,16 @@ import Foundation
 final class MapViewModel {
     var usecase: MapUsecase?
     private(set) var locationState: LocationPermission?
+    
+    var viewDidLoad = PublishRelay<Void>()
+    
+    init() {
+        viewDidLoad.bind { [weak self] _ in
+            guard let self = self else { return }
+            self.usecase?.requestPermission()
+        }
+        
+    }
 }
 
 extension MapViewModel: MapViewModelType {
@@ -20,19 +30,15 @@ extension MapViewModel: MapViewModelType {
     func state() -> MapViewModelOutput {
         return self
     }
-    
-    func viewDidLoad() {
-        usecase?.requestPermission()
-    }
 }
 
 typealias MapViewModelType = MapViewModelInput & MapViewModelOutput & MapViewModelBinding
 
 protocol MapViewModelInput {
-    func viewDidLoad()
+    var viewDidLoad: PublishRelay<Void> { get }
 }
 protocol MapViewModelOutput {
-    var locationState: LocationPermission? { get }
+    //var locationState: LocationPermission? { get }
 }
 protocol MapViewModelBinding {
     func action() -> MapViewModelInput

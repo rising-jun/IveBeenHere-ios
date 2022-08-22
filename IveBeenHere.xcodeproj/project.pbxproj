@@ -13,16 +13,18 @@
 		724FE71D28AF75AC00BCAD05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE71C28AF75AC00BCAD05 /* AppDelegate.swift */; };
 		724FE71F28AF75AC00BCAD05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE71E28AF75AC00BCAD05 /* SceneDelegate.swift */; };
 		724FE72128AF75AC00BCAD05 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE72028AF75AC00BCAD05 /* MapViewController.swift */; };
-		724FE72428AF75AC00BCAD05 /* MapStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 724FE72228AF75AC00BCAD05 /* MapStoryBoard.storyboard */; };
 		724FE72628AF75AD00BCAD05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 724FE72528AF75AD00BCAD05 /* Assets.xcassets */; };
 		724FE72928AF75AD00BCAD05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 724FE72728AF75AD00BCAD05 /* LaunchScreen.storyboard */; };
 		724FE73428AF75AD00BCAD05 /* IveBeenHereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE73328AF75AD00BCAD05 /* IveBeenHereTests.swift */; };
 		724FE73E28AF75AD00BCAD05 /* IveBeenHereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE73D28AF75AD00BCAD05 /* IveBeenHereUITests.swift */; };
 		724FE74028AF75AD00BCAD05 /* IveBeenHereUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE73F28AF75AD00BCAD05 /* IveBeenHereUITestsLaunchTests.swift */; };
 		724FE74D28AF772100BCAD05 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE74C28AF772100BCAD05 /* SplashViewController.swift */; };
-		724FE75228AF77B000BCAD05 /* SplashStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 724FE75128AF77B000BCAD05 /* SplashStoryBoard.storyboard */; };
 		728EC25528B0C1A00032C4C2 /* SplashBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728EC25428B0C1A00032C4C2 /* SplashBuilder.swift */; };
 		72E3DFC828B35F620066B5BE /* PublishRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E3DFC728B35F620066B5BE /* PublishRelay.swift */; };
+		72E3DFCA28B370AE0066B5BE /* MapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E3DFC928B370AE0066B5BE /* MapBuilder.swift */; };
+		72E3DFCD28B373F40066B5BE /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E3DFCC28B373F40066B5BE /* SplashViewController.xib */; };
+		72E3DFCF28B3762D0066B5BE /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E3DFCE28B3762D0066B5BE /* CompositionRoot.swift */; };
+		72E3DFD128B3775C0066B5BE /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E3DFD028B3775C0066B5BE /* MapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +52,6 @@
 		724FE71C28AF75AC00BCAD05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		724FE71E28AF75AC00BCAD05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		724FE72028AF75AC00BCAD05 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		724FE72328AF75AC00BCAD05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MapStoryBoard.storyboard; sourceTree = "<group>"; };
 		724FE72528AF75AD00BCAD05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		724FE72828AF75AD00BCAD05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		724FE72A28AF75AD00BCAD05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,9 +61,12 @@
 		724FE73D28AF75AD00BCAD05 /* IveBeenHereUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IveBeenHereUITests.swift; sourceTree = "<group>"; };
 		724FE73F28AF75AD00BCAD05 /* IveBeenHereUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IveBeenHereUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		724FE74C28AF772100BCAD05 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		724FE75128AF77B000BCAD05 /* SplashStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashStoryBoard.storyboard; sourceTree = "<group>"; };
 		728EC25428B0C1A00032C4C2 /* SplashBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashBuilder.swift; sourceTree = "<group>"; };
 		72E3DFC728B35F620066B5BE /* PublishRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishRelay.swift; sourceTree = "<group>"; };
+		72E3DFC928B370AE0066B5BE /* MapBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBuilder.swift; sourceTree = "<group>"; };
+		72E3DFCC28B373F40066B5BE /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		72E3DFCE28B3762D0066B5BE /* CompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
+		72E3DFD028B3775C0066B5BE /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,10 +97,11 @@
 		720B2E8228AF8308008F5853 /* map */ = {
 			isa = PBXGroup;
 			children = (
-				724FE72228AF75AC00BCAD05 /* MapStoryBoard.storyboard */,
 				724FE72028AF75AC00BCAD05 /* MapViewController.swift */,
 				720B2E8628AF8342008F5853 /* MapViewModel.swift */,
 				720B2E8A28AF8401008F5853 /* MapUsecase.swift */,
+				72E3DFC928B370AE0066B5BE /* MapBuilder.swift */,
+				72E3DFD028B3775C0066B5BE /* MapViewController.xib */,
 			);
 			path = map;
 			sourceTree = "<group>";
@@ -172,8 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				724FE74C28AF772100BCAD05 /* SplashViewController.swift */,
-				724FE75128AF77B000BCAD05 /* SplashStoryBoard.storyboard */,
 				728EC25428B0C1A00032C4C2 /* SplashBuilder.swift */,
+				72E3DFCC28B373F40066B5BE /* SplashViewController.xib */,
 			);
 			path = splash;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				724FE72A28AF75AD00BCAD05 /* Info.plist */,
 				724FE71E28AF75AC00BCAD05 /* SceneDelegate.swift */,
 				724FE71C28AF75AC00BCAD05 /* AppDelegate.swift */,
+				72E3DFCE28B3762D0066B5BE /* CompositionRoot.swift */,
 			);
 			path = entry;
 			sourceTree = "<group>";
@@ -294,8 +300,8 @@
 			files = (
 				724FE72928AF75AD00BCAD05 /* LaunchScreen.storyboard in Resources */,
 				724FE72628AF75AD00BCAD05 /* Assets.xcassets in Resources */,
-				724FE75228AF77B000BCAD05 /* SplashStoryBoard.storyboard in Resources */,
-				724FE72428AF75AC00BCAD05 /* MapStoryBoard.storyboard in Resources */,
+				72E3DFCD28B373F40066B5BE /* SplashViewController.xib in Resources */,
+				72E3DFD128B3775C0066B5BE /* MapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,10 +328,12 @@
 			files = (
 				72E3DFC828B35F620066B5BE /* PublishRelay.swift in Sources */,
 				728EC25528B0C1A00032C4C2 /* SplashBuilder.swift in Sources */,
+				72E3DFCA28B370AE0066B5BE /* MapBuilder.swift in Sources */,
 				724FE72128AF75AC00BCAD05 /* MapViewController.swift in Sources */,
 				720B2E8728AF8342008F5853 /* MapViewModel.swift in Sources */,
 				724FE71D28AF75AC00BCAD05 /* AppDelegate.swift in Sources */,
 				724FE71F28AF75AC00BCAD05 /* SceneDelegate.swift in Sources */,
+				72E3DFCF28B3762D0066B5BE /* CompositionRoot.swift in Sources */,
 				720B2E8E28AF8480008F5853 /* PermissionManager.swift in Sources */,
 				720B2E8B28AF8401008F5853 /* MapUsecase.swift in Sources */,
 				724FE74D28AF772100BCAD05 /* SplashViewController.swift in Sources */,
@@ -365,14 +373,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		724FE72228AF75AC00BCAD05 /* MapStoryBoard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				724FE72328AF75AC00BCAD05 /* Base */,
-			);
-			name = MapStoryBoard.storyboard;
-			sourceTree = "<group>";
-		};
 		724FE72728AF75AD00BCAD05 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -508,7 +508,8 @@
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IveBeenHere/entry/Info.plist;
-				INFOPLIST_KEY_NSMainNibFile = SplashStoryBoard;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "지도에 사용자의 현재위치를 표시할 수 있습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 가져옵니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -536,7 +537,8 @@
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IveBeenHere/entry/Info.plist;
-				INFOPLIST_KEY_NSMainNibFile = SplashStoryBoard;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "지도에 사용자의 현재위치를 표시할 수 있습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 가져옵니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

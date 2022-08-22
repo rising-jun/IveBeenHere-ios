@@ -9,17 +9,12 @@ import UIKit
 
 class SplashViewController: UIViewController {
     static let id = String(describing: SplashViewController.self)
+    
+    static func instance() -> SplashViewController {
+        return SplashViewController(nibName: id, bundle: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        presentMapViewController()
-    }
-}
-private extension SplashViewController {
-    func presentMapViewController() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            let storyboard = UIStoryboard(name: "MapStoryBoard", bundle: nil)
-            let mapViewController = storyboard.instantiateViewController(withIdentifier: "MapStoryBoard")
-            self.navigationController?.setViewControllers([mapViewController], animated: true)
-        }
     }
 }
