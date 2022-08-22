@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		720B2E8728AF8342008F5853 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8628AF8342008F5853 /* MapViewModel.swift */; };
+		720B2E8B28AF8401008F5853 /* MapUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8A28AF8401008F5853 /* MapUsecase.swift */; };
+		720B2E8E28AF8480008F5853 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8D28AF8480008F5853 /* PermissionManager.swift */; };
 		724FE71D28AF75AC00BCAD05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE71C28AF75AC00BCAD05 /* AppDelegate.swift */; };
 		724FE71F28AF75AC00BCAD05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE71E28AF75AC00BCAD05 /* SceneDelegate.swift */; };
 		724FE72128AF75AC00BCAD05 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE72028AF75AC00BCAD05 /* MapViewController.swift */; };
@@ -18,6 +21,8 @@
 		724FE74028AF75AD00BCAD05 /* IveBeenHereUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE73F28AF75AD00BCAD05 /* IveBeenHereUITestsLaunchTests.swift */; };
 		724FE74D28AF772100BCAD05 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE74C28AF772100BCAD05 /* SplashViewController.swift */; };
 		724FE75228AF77B000BCAD05 /* SplashStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 724FE75128AF77B000BCAD05 /* SplashStoryBoard.storyboard */; };
+		728EC25528B0C1A00032C4C2 /* SplashBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728EC25428B0C1A00032C4C2 /* SplashBuilder.swift */; };
+		72E3DFC828B35F620066B5BE /* PublishRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E3DFC728B35F620066B5BE /* PublishRelay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		720B2E8628AF8342008F5853 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		720B2E8A28AF8401008F5853 /* MapUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUsecase.swift; sourceTree = "<group>"; };
+		720B2E8D28AF8480008F5853 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
 		724FE71928AF75AC00BCAD05 /* IveBeenHere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IveBeenHere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724FE71C28AF75AC00BCAD05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		724FE71E28AF75AC00BCAD05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +61,8 @@
 		724FE73F28AF75AD00BCAD05 /* IveBeenHereUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IveBeenHereUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		724FE74C28AF772100BCAD05 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		724FE75128AF77B000BCAD05 /* SplashStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashStoryBoard.storyboard; sourceTree = "<group>"; };
+		728EC25428B0C1A00032C4C2 /* SplashBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashBuilder.swift; sourceTree = "<group>"; };
+		72E3DFC728B35F620066B5BE /* PublishRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishRelay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		720B2E8228AF8308008F5853 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				724FE72228AF75AC00BCAD05 /* MapStoryBoard.storyboard */,
+				724FE72028AF75AC00BCAD05 /* MapViewController.swift */,
+				720B2E8628AF8342008F5853 /* MapViewModel.swift */,
+				720B2E8A28AF8401008F5853 /* MapUsecase.swift */,
+			);
+			path = map;
+			sourceTree = "<group>";
+		};
+		720B2E8C28AF8475008F5853 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				720B2E8D28AF8480008F5853 /* PermissionManager.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
 		724FE71028AF75AC00BCAD05 = {
 			isa = PBXGroup;
 			children = (
@@ -131,9 +160,10 @@
 		724FE74E28AF772500BCAD05 /* scene */ = {
 			isa = PBXGroup;
 			children = (
-				724FE72228AF75AC00BCAD05 /* MapStoryBoard.storyboard */,
-				724FE72028AF75AC00BCAD05 /* MapViewController.swift */,
+				720B2E8C28AF8475008F5853 /* common */,
+				720B2E8228AF8308008F5853 /* map */,
 				724FE74F28AF772C00BCAD05 /* splash */,
+				72E3DFC728B35F620066B5BE /* PublishRelay.swift */,
 			);
 			path = scene;
 			sourceTree = "<group>";
@@ -143,6 +173,7 @@
 			children = (
 				724FE74C28AF772100BCAD05 /* SplashViewController.swift */,
 				724FE75128AF77B000BCAD05 /* SplashStoryBoard.storyboard */,
+				728EC25428B0C1A00032C4C2 /* SplashBuilder.swift */,
 			);
 			path = splash;
 			sourceTree = "<group>";
@@ -289,9 +320,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72E3DFC828B35F620066B5BE /* PublishRelay.swift in Sources */,
+				728EC25528B0C1A00032C4C2 /* SplashBuilder.swift in Sources */,
 				724FE72128AF75AC00BCAD05 /* MapViewController.swift in Sources */,
+				720B2E8728AF8342008F5853 /* MapViewModel.swift in Sources */,
 				724FE71D28AF75AC00BCAD05 /* AppDelegate.swift in Sources */,
 				724FE71F28AF75AC00BCAD05 /* SceneDelegate.swift in Sources */,
+				720B2E8E28AF8480008F5853 /* PermissionManager.swift in Sources */,
+				720B2E8B28AF8401008F5853 /* MapUsecase.swift in Sources */,
 				724FE74D28AF772100BCAD05 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

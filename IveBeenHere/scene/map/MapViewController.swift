@@ -8,10 +8,12 @@
 import UIKit
 
 class MapViewController: UIViewController {
-
+    
+    var viewModel: MapViewModelType?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 }
 
