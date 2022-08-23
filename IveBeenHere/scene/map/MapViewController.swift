@@ -11,6 +11,7 @@ import MapKit
 final class MapViewController: UIViewController {
     static let id = String(describing: MapViewController.self)
     private let disposeBag = DisposeBag()
+    private let mapViewDelegate = MapViewDelegate()
     var viewModel: MapViewModelType? {
         didSet {
             binding()
@@ -44,7 +45,8 @@ extension MapViewController {
     
     private func setMapView(by coordinate: Coordinate) {
         setCamera(by: coordinate)
-        //mapView.delegate = self
+        mapView.delegate = mapViewDelegate
+        mapView.showsUserLocation = true
     }
     
     private func setCamera(by coordinate: Coordinate) {
@@ -52,9 +54,5 @@ extension MapViewController {
         guard let latMeter = CLLocationDistance(exactly: 2000), let longMeter = CLLocationDistance(exactly: 2000) else { return }
         let region = MKCoordinateRegion(center: centerCoordi, latitudinalMeters: latMeter, longitudinalMeters: longMeter)
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
-    }
-    
-    private func addUserAnnotation(by coordinate: Coordinate) {
-        
     }
 }

@@ -10,6 +10,7 @@
 		720B2E8728AF8342008F5853 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8628AF8342008F5853 /* MapViewModel.swift */; };
 		720B2E8B28AF8401008F5853 /* MapUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8A28AF8401008F5853 /* MapUsecase.swift */; };
 		720B2E8E28AF8480008F5853 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8D28AF8480008F5853 /* PermissionManager.swift */; };
+		7230741F28B4B87F00A29CEA /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230741E28B4B87F00A29CEA /* MapViewDelegate.swift */; };
 		724FE71D28AF75AC00BCAD05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE71C28AF75AC00BCAD05 /* AppDelegate.swift */; };
 		724FE71F28AF75AC00BCAD05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE71E28AF75AC00BCAD05 /* SceneDelegate.swift */; };
 		724FE72128AF75AC00BCAD05 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE72028AF75AC00BCAD05 /* MapViewController.swift */; };
@@ -48,6 +49,7 @@
 		720B2E8628AF8342008F5853 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		720B2E8A28AF8401008F5853 /* MapUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUsecase.swift; sourceTree = "<group>"; };
 		720B2E8D28AF8480008F5853 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		7230741E28B4B87F00A29CEA /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		724FE71928AF75AC00BCAD05 /* IveBeenHere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IveBeenHere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724FE71C28AF75AC00BCAD05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		724FE71E28AF75AC00BCAD05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		7230741B28B4B77500A29CEA /* delegate */ = {
 			isa = PBXGroup;
 			children = (
+				7230741E28B4B87F00A29CEA /* MapViewDelegate.swift */,
 			);
 			path = delegate;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7230741F28B4B87F00A29CEA /* MapViewDelegate.swift in Sources */,
 				72E3DFC828B35F620066B5BE /* PublishRelay.swift in Sources */,
 				728EC25528B0C1A00032C4C2 /* SplashBuilder.swift in Sources */,
 				72E3DFCA28B370AE0066B5BE /* MapBuilder.swift in Sources */,

@@ -20,12 +20,10 @@ extension PermissionManager: CLLocationManagerDelegate {
     
     func getLocationPermission() {
         if CLLocationManager.locationServicesEnabled() {
-            //delegate?.getPermission(status: CLLocationManager.authorizationStatus())
-            print("Yet")
+            //print("Yet")
             locationManager.requestWhenInUseAuthorization()
         } else {
-            //delegate?.getPermission(status: .notDetermined)
-            print("X?")
+           // print("X?")
         }
     }
     
@@ -36,7 +34,7 @@ extension PermissionManager: CLLocationManagerDelegate {
             break
         case .denied:
             //거부
-            print("denied")
+            //print("denied")
             break
         case .authorizedAlways, .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
