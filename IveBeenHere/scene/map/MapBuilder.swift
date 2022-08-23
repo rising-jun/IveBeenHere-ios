@@ -18,9 +18,12 @@ class MapBuilder: MapBuildingLogic {
         let viewModel = MapViewModel()
         let mapUsecase = MapUsecase()
         let permissionManager = PermissionManager()
+        
         viewModel.usecase = mapUsecase
         mapUsecase.permissionManager = permissionManager
+        mapUsecase.viewModelResponsable = viewModel
         viewController.viewModel = viewModel
+        permissionManager.coordiUpdatable = mapUsecase
         return viewController
     }
 }

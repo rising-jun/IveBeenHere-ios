@@ -18,15 +18,17 @@ final class PublishRelay<T>: Disposable {
     private var dispatch: DispatchQueue?
     private(set) var value: T?
     
-    func bind(onNext: @escaping Element) {
+    func bind(onNext: @escaping Element) -> Disposable {
         binder = onNext
+        return self
     }
     
-    func observe(on dispatch: DispatchQueue) {
+    func observe(on dispatch: DispatchQueue) -> PublishRelay<T> {
         self.dispatch = dispatch
+        return self
     }
     
-    func accept(value: T) -> Disposable {
+    func accept(value: T) {
         self.value = value
         if let binder = binder {
             if let dispatch = dispatch {
@@ -39,7 +41,6 @@ final class PublishRelay<T>: Disposable {
                 }
             }
         }
-        return self
     }
     
     func removeBind() {

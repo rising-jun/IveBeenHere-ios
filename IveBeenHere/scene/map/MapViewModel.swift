@@ -9,15 +9,16 @@ import Foundation
 
 final class MapViewModel {
     var usecase: MapUsecase?
-    private(set) var locationState: LocationPermission?
-    
     var viewDidLoad = PublishRelay<Void>()
+    private let disposeBag = DisposeBag()
+    
+    var setUserLocationCoordi = PublishRelay<Coordinate>()
     
     init() {
         viewDidLoad.bind { [weak self] _ in
             guard let self = self else { return }
             self.usecase?.requestPermission()
-        }
+        }.disposed(by: disposeBag)
         
     }
 }
@@ -38,12 +39,13 @@ protocol MapViewModelInput {
     var viewDidLoad: PublishRelay<Void> { get }
 }
 protocol MapViewModelOutput {
-    //var locationState: LocationPermission? { get }
+    var setUserLocationCoordi: PublishRelay<Coordinate> { get }
 }
 protocol MapViewModelBinding {
     func action() -> MapViewModelInput
     func state() -> MapViewModelOutput
 }
+
 enum LocationPermission {
     case available
     case unavailable

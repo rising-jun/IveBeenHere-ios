@@ -9,7 +9,8 @@ import CoreLocation
 
 final class PermissionManager: NSObject {
     private let locationManager = CLLocationManager()
-    var updatedLocation: ((Coordinate) -> ())?
+    var coordiUpdatable: MapUsecaseCoordiUpdatable?
+    private let disposeBag = DisposeBag()
     override init() {
         super.init()
         locationManager.delegate = self
@@ -17,13 +18,14 @@ final class PermissionManager: NSObject {
 }
 extension PermissionManager: CLLocationManagerDelegate {
     
-    func getLocationPermission(){
+    func getLocationPermission() {
         if CLLocationManager.locationServicesEnabled() {
             //delegate?.getPermission(status: CLLocationManager.authorizationStatus())
-            print("use")
+            print("Yet")
+            locationManager.requestWhenInUseAuthorization()
         } else {
             //delegate?.getPermission(status: .notDetermined)
-            print("go to setting")
+            print("X?")
         }
     }
     
@@ -46,7 +48,8 @@ extension PermissionManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         let coordinate = Coordinate(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        updatedLocation?(coordinate)
+        coordiUpdatable?.coordiRelay
+            .accept(value: coordinate)
     }
 }
 

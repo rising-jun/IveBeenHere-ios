@@ -17,4 +17,3 @@ class SplashBuilder: SplashBuildingLogic {
         return SplashViewController.instance()
     }
 }
-

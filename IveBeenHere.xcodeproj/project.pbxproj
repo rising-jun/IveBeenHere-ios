@@ -67,6 +67,7 @@
 		72E3DFCC28B373F40066B5BE /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		72E3DFCE28B3762D0066B5BE /* CompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
 		72E3DFD028B3775C0066B5BE /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		72E3DFD228B37F3F0066B5BE /* SeoulLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SeoulLocation.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +98,7 @@
 		720B2E8228AF8308008F5853 /* map */ = {
 			isa = PBXGroup;
 			children = (
+				7230741B28B4B77500A29CEA /* delegate */,
 				724FE72028AF75AC00BCAD05 /* MapViewController.swift */,
 				720B2E8628AF8342008F5853 /* MapViewModel.swift */,
 				720B2E8A28AF8401008F5853 /* MapUsecase.swift */,
@@ -114,9 +116,17 @@
 			path = common;
 			sourceTree = "<group>";
 		};
+		7230741B28B4B77500A29CEA /* delegate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = delegate;
+			sourceTree = "<group>";
+		};
 		724FE71028AF75AC00BCAD05 = {
 			isa = PBXGroup;
 			children = (
+				72E3DFD228B37F3F0066B5BE /* SeoulLocation.gpx */,
 				724FE71B28AF75AC00BCAD05 /* IveBeenHere */,
 				724FE73228AF75AD00BCAD05 /* IveBeenHereTests */,
 				724FE73C28AF75AD00BCAD05 /* IveBeenHereUITests */,
