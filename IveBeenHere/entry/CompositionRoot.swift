@@ -20,6 +20,7 @@ enum CompositionRoot {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         window.backgroundColor = .white
+        window.overrideUserInterfaceStyle = .dark
         return AppDependency(window: window)
     }
 }

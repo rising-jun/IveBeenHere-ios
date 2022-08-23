@@ -11,6 +11,8 @@ final class MapUsecase {
     var permissionManager: PermissionManager?
     var coordiRelay = PublishRelay<Coordinate>()
     var viewModelResponsable: MapViewModelOutput?
+    private let disposeBag = DisposeBag()
+    
     init() {
         coordiRelay.bind { [weak self] coordi in
             guard let self = self else { return }
@@ -18,6 +20,7 @@ final class MapUsecase {
                 .setUserLocationCoordi
                 .accept(value: coordi)
         }
+        .disposed(by: disposeBag)
     }
     
 }
