@@ -13,6 +13,7 @@
 		7230741F28B4B87F00A29CEA /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230741E28B4B87F00A29CEA /* MapViewDelegate.swift */; };
 		7246703328B4C72D00A16355 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7246703228B4C72D00A16355 /* KakaoSDKAuth */; };
 		7246703528B4C72D00A16355 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 7246703428B4C72D00A16355 /* KakaoSDKUser */; };
+		7246703928B4D5FC00A16355 /* KakaoLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246703828B4D5FC00A16355 /* KakaoLoginManager.swift */; };
 		724FE71D28AF75AC00BCAD05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE71C28AF75AC00BCAD05 /* AppDelegate.swift */; };
 		724FE71F28AF75AC00BCAD05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE71E28AF75AC00BCAD05 /* SceneDelegate.swift */; };
 		724FE72128AF75AC00BCAD05 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE72028AF75AC00BCAD05 /* MapViewController.swift */; };
@@ -52,6 +53,7 @@
 		720B2E8A28AF8401008F5853 /* MapUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUsecase.swift; sourceTree = "<group>"; };
 		720B2E8D28AF8480008F5853 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
 		7230741E28B4B87F00A29CEA /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
+		7246703828B4D5FC00A16355 /* KakaoLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginManager.swift; sourceTree = "<group>"; };
 		724FE71928AF75AC00BCAD05 /* IveBeenHere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IveBeenHere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724FE71C28AF75AC00BCAD05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		724FE71E28AF75AC00BCAD05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,14 @@
 			path = delegate;
 			sourceTree = "<group>";
 		};
+		7246703628B4D5D600A16355 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				7246703828B4D5FC00A16355 /* KakaoLoginManager.swift */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
 		724FE71028AF75AC00BCAD05 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +164,7 @@
 		724FE71B28AF75AC00BCAD05 /* IveBeenHere */ = {
 			isa = PBXGroup;
 			children = (
+				7246703628B4D5D600A16355 /* login */,
 				724FE74E28AF772500BCAD05 /* scene */,
 				724FE75028AF773F00BCAD05 /* entry */,
 				724FE72528AF75AD00BCAD05 /* Assets.xcassets */,
@@ -353,6 +364,7 @@
 				7230741F28B4B87F00A29CEA /* MapViewDelegate.swift in Sources */,
 				72E3DFC828B35F620066B5BE /* PublishRelay.swift in Sources */,
 				728EC25528B0C1A00032C4C2 /* SplashBuilder.swift in Sources */,
+				7246703928B4D5FC00A16355 /* KakaoLoginManager.swift in Sources */,
 				72E3DFCA28B370AE0066B5BE /* MapBuilder.swift in Sources */,
 				724FE72128AF75AC00BCAD05 /* MapViewController.swift in Sources */,
 				720B2E8728AF8342008F5853 /* MapViewModel.swift in Sources */,

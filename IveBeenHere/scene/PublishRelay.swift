@@ -14,12 +14,12 @@ protocol Disposable {
 
 final class PublishRelay<T>: Disposable {
     typealias Element = (T) -> Void
-    private var binder: ((T) -> Void)?
+    private var binders: [((T) -> Void)] = []
     private var dispatch: DispatchQueue?
     private(set) var value: T?
     
     func bind(onNext: @escaping Element) -> Disposable {
-        binder = onNext
+        binders.append(onNext)
         return self
     }
     
@@ -30,13 +30,17 @@ final class PublishRelay<T>: Disposable {
     
     func accept(value: T) {
         self.value = value
-        if let binder = binder {
-            if let dispatch = dispatch {
-                dispatch.async {
+        if let dispatch = dispatch {
+            dispatch.async { [weak self] in
+                guard let self = self else { return }
+                self.binders.forEach { binder in
                     binder(value)
                 }
-            } else {
-                DispatchQueue.global().async {
+            }
+        } else {
+            DispatchQueue.global().async { [weak self] in
+                guard let self = self else { return }
+                self.binders.forEach { binder in
                     binder(value)
                 }
             }
@@ -44,7 +48,7 @@ final class PublishRelay<T>: Disposable {
     }
     
     func removeBind() {
-        binder = nil
+        binders.removeAll()
     }
     
     func disposed(by disposeBag: DisposeBag) {

@@ -19,6 +19,7 @@ final class MapViewController: UIViewController {
     }
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var addPostButton: UIButton!
     
     static func instance() -> MapViewController {
         return MapViewController(nibName: id, bundle: nil)
@@ -41,6 +42,25 @@ extension MapViewController {
                 self.setMapView(by: coordinate)
             })
             .disposed(by: disposeBag)
+        
+        viewModel?.state()
+            .viewAttirbute
+            .observe(on: DispatchQueue.main)
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.viewAttribute()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func viewAttribute() {
+        addPostButton.addTarget(self, action: #selector(addPostButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func addPostButtonTapped(sender: Any) {
+        viewModel?.action()
+            .addPostButtonTapped
+            .accept(value: ())
     }
     
     private func setMapView(by coordinate: Coordinate) {

@@ -9,9 +9,13 @@ import Foundation
 
 final class MapUsecase {
     var permissionManager: PermissionManager?
-    var coordiRelay = PublishRelay<Coordinate>()
     var viewModelResponsable: MapViewModelOutput?
+    var kakaoLoginManagable: KakaoLoginManager?
+    
     private let disposeBag = DisposeBag()
+    
+    var coordiRelay = PublishRelay<Coordinate>()
+    var loginResultRelay = PublishRelay<Bool>()
     
     init() {
         coordiRelay.bind { [weak self] coordi in
@@ -21,6 +25,15 @@ final class MapUsecase {
                 .accept(value: coordi)
         }
         .disposed(by: disposeBag)
+        
+        loginResultRelay
+            .bind { [weak self] result in
+            guard let self = self else { return }
+            if !result {
+                self.kakaoLoginManagable?.loginRequest()
+            }
+        }
+        .disposed(by: disposeBag)
     }
     
 }
@@ -28,6 +41,20 @@ extension MapUsecase: MapManagable {
     func requestPermission() {
         permissionManager?.getLocationPermission()
     }
+}
+
+extension MapUsecase: MapUsecaseLoginUpdatable {
+    func checkLogin() {
+        kakaoLoginManagable?.loginRequest()
+    }
+    
+    func requestKakaoLogin() {
+        
+    }
+}
+
+protocol MapUsecaseLoginUpdatable {
+    var loginResultRelay: PublishRelay<Bool> { get }
 }
 
 protocol MapManagable: MapUsecaseCoordiUpdatable {
