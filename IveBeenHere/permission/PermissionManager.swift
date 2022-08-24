@@ -40,6 +40,8 @@ extension PermissionManager: CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         case .authorized:
             break
+        @unknown default:
+            fatalError()
         }
     }
     
