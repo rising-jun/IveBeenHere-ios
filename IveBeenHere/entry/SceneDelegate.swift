@@ -8,6 +8,7 @@
 import UIKit
 import KakaoSDKAuth
 import KakaoSDKCommon
+import FirebaseCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -17,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         KakaoSDK.initSDK(appKey: KakaoLoginManager.Key.appKey)
+        FirebaseApp.configure()
         let window = UIWindow(windowScene: scene)
         window.makeKeyAndVisible()
         window.rootViewController = SplashBuilder().build()

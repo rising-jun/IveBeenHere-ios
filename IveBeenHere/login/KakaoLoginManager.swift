@@ -32,6 +32,7 @@ extension KakaoLoginManager: KakaoLoginManagable {
         UserApi.shared.loginWithKakaoAccount(nonce: nil) { [weak self] token, error in
             guard let self = self else { return }
             UserDefaults.standard.setValue(token, forKey: KakaoLoginManager.Key.token)
+            // to firebase 
             self.mapUsecaseLoginUpdatable?
                 .loginResultRelay
                 .accept(value: true)

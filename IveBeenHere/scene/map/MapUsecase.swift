@@ -9,35 +9,37 @@ import Foundation
 
 final class MapUsecase {
     var permissionManager: PermissionManager?
-    var viewModelResponsable: MapViewModelOutput?
+    var viewModelResponsable: MapViewModelOutput? {
+        didSet {
+            binding()
+        }
+    }
     var kakaoLoginManagable: KakaoLoginManager?
     
     private let disposeBag = DisposeBag()
     
     var coordiRelay = PublishRelay<Coordinate>()
     var loginResultRelay = PublishRelay<Bool>()
-    
-    init() {
-        coordiRelay.bind { [weak self] coordi in
-            guard let self = self else { return }
-            self.viewModelResponsable?
-                .setUserLocationCoordi
-                .accept(value: coordi)
-        }
-        .disposed(by: disposeBag)
+}
+extension MapUsecase: MapManagable {
+    private func binding() {
+        coordiRelay
+            .bind { [weak self] coordi in
+                guard let self = self else { return }
+                self.viewModelResponsable?
+                    .setUserLocationCoordi
+                    .accept(value: coordi)
+            }
+            .disposed(by: disposeBag)
         
         loginResultRelay
             .bind { [weak self] result in
-            guard let self = self else { return }
-            if !result {
-                self.kakaoLoginManagable?.loginRequest()
+                guard let self = self else { return }
+                self.viewModelResponsable?.didLogin.accept(value: result)
             }
-        }
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
     }
     
-}
-extension MapUsecase: MapManagable {
     func requestPermission() {
         permissionManager?.getLocationPermission()
     }
@@ -45,11 +47,11 @@ extension MapUsecase: MapManagable {
 
 extension MapUsecase: MapUsecaseLoginUpdatable {
     func checkLogin() {
-        kakaoLoginManagable?.loginRequest()
+        kakaoLoginManagable?.loginCheck()
     }
     
     func requestKakaoLogin() {
-        
+        kakaoLoginManagable?.loginRequest()
     }
 }
 

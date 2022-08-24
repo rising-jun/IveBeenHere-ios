@@ -11,14 +11,14 @@ final class MapViewModel {
     var usecase: MapUsecase?
     var viewDidLoad = PublishRelay<Void>()
     var addPostButtonTapped = PublishRelay<Void>()
+    var userRequestLogin = PublishRelay<Void>()
     
     private let disposeBag = DisposeBag()
     
     var setUserLocationCoordi = PublishRelay<Coordinate>()
     var viewAttirbute = PublishRelay<Void>()
-    var addPosting = PublishRelay<Bool>()
+    var didLogin = PublishRelay<Bool>()
     
-    var loginState: Bool = false
         
     init() {
         viewDidLoad.bind { [weak self] _ in
@@ -32,6 +32,15 @@ final class MapViewModel {
             guard let self = self else { return }
             self.usecase?.checkLogin()
         }.disposed(by: disposeBag)
+        
+        userRequestLogin
+            .observe(on: DispatchQueue.main)
+            .bind { [weak self] _ in
+            guard let self = self else { return }
+            self.usecase?.requestKakaoLogin()
+        }
+        .disposed(by: disposeBag)
+        
     }
 }
 
@@ -50,11 +59,12 @@ typealias MapViewModelType = MapViewModelInput & MapViewModelOutput & MapViewMod
 protocol MapViewModelInput {
     var viewDidLoad: PublishRelay<Void> { get }
     var addPostButtonTapped: PublishRelay<Void> { get }
+    var userRequestLogin: PublishRelay<Void> { get }
 }
 protocol MapViewModelOutput {
     var viewAttirbute: PublishRelay<Void> { get }
     var setUserLocationCoordi: PublishRelay<Coordinate> { get }
-    var addPosting: PublishRelay<Bool> { get }
+    var didLogin: PublishRelay<Bool> { get }
 }
 protocol MapViewModelBinding {
     func action() -> MapViewModelInput

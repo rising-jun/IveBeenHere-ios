@@ -51,6 +51,15 @@ extension MapViewController {
                 self.viewAttribute()
             })
             .disposed(by: disposeBag)
+        
+        viewModel?.state()
+            .didLogin
+            .observe(on: DispatchQueue.main)
+            .bind(onNext: { [weak self] result in
+                guard let self = self else { return }
+                self.presentLoginPopup()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func viewAttribute() {
@@ -74,5 +83,12 @@ extension MapViewController {
         guard let latMeter = CLLocationDistance(exactly: 2000), let longMeter = CLLocationDistance(exactly: 2000) else { return }
         let region = MKCoordinateRegion(center: centerCoordi, latitudinalMeters: latMeter, longitudinalMeters: longMeter)
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
+    }
+    
+    private func presentLoginPopup() {
+        let popup = NoticeViewController(nibName: NoticeViewController.id, bundle: nil)
+        popup.modalPresentationStyle = .overCurrentContext
+        popup.loginButtonTapped = viewModel?.action().userRequestLogin
+        self.present(popup, animated: false, completion: nil)
     }
 }

@@ -10,7 +10,11 @@
 		720B2E8728AF8342008F5853 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8628AF8342008F5853 /* MapViewModel.swift */; };
 		720B2E8B28AF8401008F5853 /* MapUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8A28AF8401008F5853 /* MapUsecase.swift */; };
 		720B2E8E28AF8480008F5853 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8D28AF8480008F5853 /* PermissionManager.swift */; };
+		720DF86F28B5F54A002BAFB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 720DF86E28B5F54A002BAFB9 /* GoogleService-Info.plist */; };
 		7230741F28B4B87F00A29CEA /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230741E28B4B87F00A29CEA /* MapViewDelegate.swift */; };
+		7245190E28B5F66F00FA48A2 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7245190D28B5F66F00FA48A2 /* FirebaseDatabase */; };
+		7245191028B5F66F00FA48A2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7245190F28B5F66F00FA48A2 /* FirebaseFirestore */; };
+		7245191228B5F66F00FA48A2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7245191128B5F66F00FA48A2 /* FirebaseStorage */; };
 		7246703328B4C72D00A16355 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7246703228B4C72D00A16355 /* KakaoSDKAuth */; };
 		7246703528B4C72D00A16355 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 7246703428B4C72D00A16355 /* KakaoSDKUser */; };
 		7246703928B4D5FC00A16355 /* KakaoLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246703828B4D5FC00A16355 /* KakaoLoginManager.swift */; };
@@ -24,6 +28,8 @@
 		724FE74028AF75AD00BCAD05 /* IveBeenHereUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE73F28AF75AD00BCAD05 /* IveBeenHereUITestsLaunchTests.swift */; };
 		724FE74D28AF772100BCAD05 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE74C28AF772100BCAD05 /* SplashViewController.swift */; };
 		728EC25528B0C1A00032C4C2 /* SplashBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728EC25428B0C1A00032C4C2 /* SplashBuilder.swift */; };
+		728F760A28B504FE00386F08 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728F760928B504FE00386F08 /* NoticeViewController.swift */; };
+		728F760C28B5059500386F08 /* NoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 728F760B28B5059500386F08 /* NoticeViewController.xib */; };
 		72E3DFC828B35F620066B5BE /* PublishRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E3DFC728B35F620066B5BE /* PublishRelay.swift */; };
 		72E3DFCA28B370AE0066B5BE /* MapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E3DFC928B370AE0066B5BE /* MapBuilder.swift */; };
 		72E3DFCD28B373F40066B5BE /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E3DFCC28B373F40066B5BE /* SplashViewController.xib */; };
@@ -52,6 +58,7 @@
 		720B2E8628AF8342008F5853 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		720B2E8A28AF8401008F5853 /* MapUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUsecase.swift; sourceTree = "<group>"; };
 		720B2E8D28AF8480008F5853 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		720DF86E28B5F54A002BAFB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7230741E28B4B87F00A29CEA /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		7246703828B4D5FC00A16355 /* KakaoLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginManager.swift; sourceTree = "<group>"; };
 		724FE71928AF75AC00BCAD05 /* IveBeenHere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IveBeenHere.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +75,8 @@
 		724FE73F28AF75AD00BCAD05 /* IveBeenHereUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IveBeenHereUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		724FE74C28AF772100BCAD05 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		728EC25428B0C1A00032C4C2 /* SplashBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashBuilder.swift; sourceTree = "<group>"; };
+		728F760928B504FE00386F08 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		728F760B28B5059500386F08 /* NoticeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeViewController.xib; sourceTree = "<group>"; };
 		72E3DFC728B35F620066B5BE /* PublishRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishRelay.swift; sourceTree = "<group>"; };
 		72E3DFC928B370AE0066B5BE /* MapBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBuilder.swift; sourceTree = "<group>"; };
 		72E3DFCC28B373F40066B5BE /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
@@ -81,7 +90,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7245190E28B5F66F00FA48A2 /* FirebaseDatabase in Frameworks */,
+				7245191028B5F66F00FA48A2 /* FirebaseFirestore in Frameworks */,
 				7246703528B4C72D00A16355 /* KakaoSDKUser in Frameworks */,
+				7245191228B5F66F00FA48A2 /* FirebaseStorage in Frameworks */,
 				7246703328B4C72D00A16355 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +144,13 @@
 			path = delegate;
 			sourceTree = "<group>";
 		};
+		7245191328B5FCE900FA48A2 /* firebase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = firebase;
+			sourceTree = "<group>";
+		};
 		7246703628B4D5D600A16355 /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +183,7 @@
 		724FE71B28AF75AC00BCAD05 /* IveBeenHere */ = {
 			isa = PBXGroup;
 			children = (
+				7245191328B5FCE900FA48A2 /* firebase */,
 				7246703628B4D5D600A16355 /* login */,
 				724FE74E28AF772500BCAD05 /* scene */,
 				724FE75028AF773F00BCAD05 /* entry */,
@@ -193,6 +213,7 @@
 		724FE74E28AF772500BCAD05 /* scene */ = {
 			isa = PBXGroup;
 			children = (
+				728F760828B504F000386F08 /* notice */,
 				720B2E8C28AF8475008F5853 /* common */,
 				720B2E8228AF8308008F5853 /* map */,
 				724FE74F28AF772C00BCAD05 /* splash */,
@@ -215,11 +236,21 @@
 			isa = PBXGroup;
 			children = (
 				724FE72A28AF75AD00BCAD05 /* Info.plist */,
+				720DF86E28B5F54A002BAFB9 /* GoogleService-Info.plist */,
 				724FE71E28AF75AC00BCAD05 /* SceneDelegate.swift */,
 				724FE71C28AF75AC00BCAD05 /* AppDelegate.swift */,
 				72E3DFCE28B3762D0066B5BE /* CompositionRoot.swift */,
 			);
 			path = entry;
+			sourceTree = "<group>";
+		};
+		728F760828B504F000386F08 /* notice */ = {
+			isa = PBXGroup;
+			children = (
+				728F760928B504FE00386F08 /* NoticeViewController.swift */,
+				728F760B28B5059500386F08 /* NoticeViewController.xib */,
+			);
+			path = notice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +272,9 @@
 			packageProductDependencies = (
 				7246703228B4C72D00A16355 /* KakaoSDKAuth */,
 				7246703428B4C72D00A16355 /* KakaoSDKUser */,
+				7245190D28B5F66F00FA48A2 /* FirebaseDatabase */,
+				7245190F28B5F66F00FA48A2 /* FirebaseFirestore */,
+				7245191128B5F66F00FA48A2 /* FirebaseStorage */,
 			);
 			productName = IveBeenHere;
 			productReference = 724FE71928AF75AC00BCAD05 /* IveBeenHere.app */;
@@ -316,6 +350,7 @@
 			mainGroup = 724FE71028AF75AC00BCAD05;
 			packageReferences = (
 				7246703128B4C72D00A16355 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				7245190C28B5F66F00FA48A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 724FE71A28AF75AC00BCAD05 /* Products */;
 			projectDirPath = "";
@@ -333,10 +368,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				728F760C28B5059500386F08 /* NoticeViewController.xib in Resources */,
 				724FE72928AF75AD00BCAD05 /* LaunchScreen.storyboard in Resources */,
 				724FE72628AF75AD00BCAD05 /* Assets.xcassets in Resources */,
 				72E3DFCD28B373F40066B5BE /* SplashViewController.xib in Resources */,
 				72E3DFD128B3775C0066B5BE /* MapViewController.xib in Resources */,
+				720DF86F28B5F54A002BAFB9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +404,7 @@
 				7246703928B4D5FC00A16355 /* KakaoLoginManager.swift in Sources */,
 				72E3DFCA28B370AE0066B5BE /* MapBuilder.swift in Sources */,
 				724FE72128AF75AC00BCAD05 /* MapViewController.swift in Sources */,
+				728F760A28B504FE00386F08 /* NoticeViewController.swift in Sources */,
 				720B2E8728AF8342008F5853 /* MapViewModel.swift in Sources */,
 				724FE71D28AF75AC00BCAD05 /* AppDelegate.swift in Sources */,
 				724FE71F28AF75AC00BCAD05 /* SceneDelegate.swift in Sources */,
@@ -711,6 +749,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7245190C28B5F66F00FA48A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		7246703128B4C72D00A16355 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
@@ -722,6 +768,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7245190D28B5F66F00FA48A2 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7245190C28B5F66F00FA48A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		7245190F28B5F66F00FA48A2 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7245190C28B5F66F00FA48A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		7245191128B5F66F00FA48A2 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7245190C28B5F66F00FA48A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		7246703228B4C72D00A16355 /* KakaoSDKAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7246703128B4C72D00A16355 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
