@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="IveBeenHere" customModuleProvider="target">
             <connections>
+                <outlet property="addPostButton" destination="PYB-Bh-bYO" id="iFy-1z-mnN"/>
                 <outlet property="mapView" destination="Crt-20-0iD" id="PYb-j2-our"/>
                 <outlet property="view" destination="iN0-l3-epB" id="NYE-dE-jQm"/>
             </connections>

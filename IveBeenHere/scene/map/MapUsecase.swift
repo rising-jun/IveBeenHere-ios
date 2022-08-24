@@ -9,25 +9,54 @@ import Foundation
 
 final class MapUsecase {
     var permissionManager: PermissionManager?
-    var coordiRelay = PublishRelay<Coordinate>()
-    var viewModelResponsable: MapViewModelOutput?
+    var viewModelResponsable: MapViewModelOutput? {
+        didSet {
+            binding()
+        }
+    }
+    var kakaoLoginManagable: KakaoLoginManager?
+    
     private let disposeBag = DisposeBag()
     
-    init() {
-        coordiRelay.bind { [weak self] coordi in
-            guard let self = self else { return }
-            self.viewModelResponsable?
-                .setUserLocationCoordi
-                .accept(value: coordi)
-        }
-        .disposed(by: disposeBag)
-    }
-    
+    var coordiRelay = PublishRelay<Coordinate>()
+    var loginResultRelay = PublishRelay<Bool>()
 }
 extension MapUsecase: MapManagable {
+    private func binding() {
+        coordiRelay
+            .bind { [weak self] coordi in
+                guard let self = self else { return }
+                self.viewModelResponsable?
+                    .setUserLocationCoordi
+                    .accept(value: coordi)
+            }
+            .disposed(by: disposeBag)
+        
+        loginResultRelay
+            .bind { [weak self] result in
+                guard let self = self else { return }
+                self.viewModelResponsable?.didLogin.accept(value: result)
+            }
+            .disposed(by: disposeBag)
+    }
+    
     func requestPermission() {
         permissionManager?.getLocationPermission()
     }
+}
+
+extension MapUsecase: MapUsecaseLoginUpdatable {
+    func checkLogin() {
+        kakaoLoginManagable?.loginCheck()
+    }
+    
+    func requestKakaoLogin() {
+        kakaoLoginManagable?.loginRequest()
+    }
+}
+
+protocol MapUsecaseLoginUpdatable {
+    var loginResultRelay: PublishRelay<Bool> { get }
 }
 
 protocol MapManagable: MapUsecaseCoordiUpdatable {

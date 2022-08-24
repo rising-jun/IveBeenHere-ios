@@ -19,6 +19,7 @@ final class MapViewController: UIViewController {
     }
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var addPostButton: UIButton!
     
     static func instance() -> MapViewController {
         return MapViewController(nibName: id, bundle: nil)
@@ -41,6 +42,34 @@ extension MapViewController {
                 self.setMapView(by: coordinate)
             })
             .disposed(by: disposeBag)
+        
+        viewModel?.state()
+            .viewAttirbute
+            .observe(on: DispatchQueue.main)
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.viewAttribute()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel?.state()
+            .didLogin
+            .observe(on: DispatchQueue.main)
+            .bind(onNext: { [weak self] result in
+                guard let self = self else { return }
+                self.presentLoginPopup()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func viewAttribute() {
+        addPostButton.addTarget(self, action: #selector(addPostButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func addPostButtonTapped(sender: Any) {
+        viewModel?.action()
+            .addPostButtonTapped
+            .accept(value: ())
     }
     
     private func setMapView(by coordinate: Coordinate) {
@@ -54,5 +83,12 @@ extension MapViewController {
         guard let latMeter = CLLocationDistance(exactly: 2000), let longMeter = CLLocationDistance(exactly: 2000) else { return }
         let region = MKCoordinateRegion(center: centerCoordi, latitudinalMeters: latMeter, longitudinalMeters: longMeter)
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
+    }
+    
+    private func presentLoginPopup() {
+        let popup = NoticeViewController(nibName: NoticeViewController.id, bundle: nil)
+        popup.modalPresentationStyle = .overCurrentContext
+        popup.loginButtonTapped = viewModel?.action().userRequestLogin
+        self.present(popup, animated: false, completion: nil)
     }
 }
