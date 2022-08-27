@@ -17,12 +17,13 @@ class MainMapBuilder: MainMapBuildingLogic {
         let viewController = MainMapViewController.instance()
         let viewModel = MainMapViewModel()
         let mainMapUsecase = MainMapUsecase()
+        let loginManager = KakaoLoginManager()
         
         viewModel.usecase = mainMapUsecase
+        mainMapUsecase.kakaoLoginManagable = loginManager
         mainMapUsecase.viewModelResponsable = viewModel
-        
+        loginManager.mapUsecaseLoginUpdatable = mainMapUsecase
         viewController.viewModel = viewModel
-        
         return viewController
     }
 }

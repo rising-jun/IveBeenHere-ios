@@ -30,9 +30,9 @@ final class MainMapViewController: UIViewController {
 }
 extension MainMapViewController {
     private func viewAttribute() {
-        print("asdf")
         view.addSubview(mapViewController.view)
         addPostButton.layer.zPosition = 999
+        view.bringSubviewToFront(addPostButton)
         addPostButton.addTarget(self, action: #selector(addPostButtonTapped), for: .touchUpInside)
     }
     
@@ -41,7 +41,6 @@ extension MainMapViewController {
             .viewAttirbute
             .observe(on: DispatchQueue.main)
             .bind(onNext: { [weak self] _ in
-                print("asdf11")
                 guard let self = self else { return }
                 self.viewAttribute()
             })
