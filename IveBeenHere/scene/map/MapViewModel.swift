@@ -45,6 +45,7 @@ protocol MapViewModelInput {
 }
 protocol MapViewModelOutput {
     var setUserLocationCoordi: PublishRelay<Coordinate> { get }
+    var viewAttirbute: PublishRelay<Void> { get }
 }
 protocol MapViewModelBinding {
     func action() -> MapViewModelInput

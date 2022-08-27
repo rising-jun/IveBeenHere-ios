@@ -34,6 +34,16 @@ class MapViewController: UIViewController {
 extension MapViewController {
     private func binding() {
         viewModel?.state()
+            .viewAttirbute
+            .observe(on: DispatchQueue.main)
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.mapView.delegate = self.mapViewDelegate
+                self.mapView.showsUserLocation = true
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel?.state()
             .setUserLocationCoordi
             .observe(on: DispatchQueue.main)
             .bind(onNext: { [weak self] coordinate in
@@ -45,8 +55,6 @@ extension MapViewController {
     
     private func setMapView(by coordinate: Coordinate) {
         setCamera(by: coordinate)
-        mapView.delegate = mapViewDelegate
-        mapView.showsUserLocation = true
     }
     
     private func setCamera(by coordinate: Coordinate) {
@@ -54,5 +62,15 @@ extension MapViewController {
         guard let latMeter = CLLocationDistance(exactly: 2000), let longMeter = CLLocationDistance(exactly: 2000) else { return }
         let region = MKCoordinateRegion(center: centerCoordi, latitudinalMeters: latMeter, longitudinalMeters: longMeter)
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
+    }
+    
+    func addAnnotationToUserLocation(draggedRelay: PublishRelay<Coordinate>) {
+        guard let coordi = viewModel?.state().setUserLocationCoordi.value else { return }
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: coordi.latitude, longitude: coordi.longitude)
+        annotation.title = "여기!"
+        mapViewDelegate.draggedPinRelay = draggedRelay
+        mapView.addAnnotation(annotation)
+        mapView.showsUserLocation = false
     }
 }

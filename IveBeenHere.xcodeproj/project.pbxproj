@@ -18,10 +18,6 @@
 		7230741F28B4B87F00A29CEA /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230741E28B4B87F00A29CEA /* MapViewDelegate.swift */; };
 		7244B8E128B9EF9500AC9BAF /* PlaceAddMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244B8E028B9EF9500AC9BAF /* PlaceAddMapViewController.swift */; };
 		7244B8E628B9F1C000AC9BAF /* PlaceAddMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7244B8E528B9F1BF00AC9BAF /* PlaceAddMapViewController.xib */; };
-		7244B8E828B9F43E00AC9BAF /* PlaceAddMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244B8E728B9F43E00AC9BAF /* PlaceAddMapViewModel.swift */; };
-		7244B8EA28B9F44A00AC9BAF /* PlaceAddMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244B8E928B9F44A00AC9BAF /* PlaceAddMapBuilder.swift */; };
-		7244B8EC28B9F47B00AC9BAF /* PlaceAddMapUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244B8EB28B9F47B00AC9BAF /* PlaceAddMapUsecase.swift */; };
-		7244B8EF28B9F60B00AC9BAF /* PlaceAddMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244B8EE28B9F60B00AC9BAF /* PlaceAddMapDelegate.swift */; };
 		7244B8F128B9FD0C00AC9BAF /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244B8F028B9FD0C00AC9BAF /* MainMapViewController.swift */; };
 		7244B8F428B9FD2C00AC9BAF /* MainMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7244B8F328B9FD2C00AC9BAF /* MainMapViewController.xib */; };
 		7245190E28B5F66F00FA48A2 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7245190D28B5F66F00FA48A2 /* FirebaseDatabase */; };
@@ -44,6 +40,9 @@
 		72559C0E28BA0055006F3E8F /* MainMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72559C0D28BA0055006F3E8F /* MainMapViewModel.swift */; };
 		72559C1028BA0130006F3E8F /* MainMapUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72559C0F28BA0130006F3E8F /* MainMapUsecase.swift */; };
 		72559C1228BA03B6006F3E8F /* MainMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72559C1128BA03B6006F3E8F /* MainMapBuilder.swift */; };
+		7289F72628BA1CF0007501A2 /* PlaceAddMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289F72528BA1CF0007501A2 /* PlaceAddMapViewModel.swift */; };
+		7289F72828BA1D02007501A2 /* PlaceAddMapUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289F72728BA1D02007501A2 /* PlaceAddMapUsecase.swift */; };
+		7289F72B28BA1D1F007501A2 /* PlaceAddMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289F72A28BA1D1F007501A2 /* PlaceAddMapBuilder.swift */; };
 		728EC25528B0C1A00032C4C2 /* SplashBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728EC25428B0C1A00032C4C2 /* SplashBuilder.swift */; };
 		728F760A28B504FE00386F08 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728F760928B504FE00386F08 /* NoticeViewController.swift */; };
 		728F760C28B5059500386F08 /* NoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 728F760B28B5059500386F08 /* NoticeViewController.xib */; };
@@ -85,10 +84,6 @@
 		7230741E28B4B87F00A29CEA /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		7244B8E028B9EF9500AC9BAF /* PlaceAddMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapViewController.swift; sourceTree = "<group>"; };
 		7244B8E528B9F1BF00AC9BAF /* PlaceAddMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceAddMapViewController.xib; sourceTree = "<group>"; };
-		7244B8E728B9F43E00AC9BAF /* PlaceAddMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapViewModel.swift; sourceTree = "<group>"; };
-		7244B8E928B9F44A00AC9BAF /* PlaceAddMapBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapBuilder.swift; sourceTree = "<group>"; };
-		7244B8EB28B9F47B00AC9BAF /* PlaceAddMapUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapUsecase.swift; sourceTree = "<group>"; };
-		7244B8EE28B9F60B00AC9BAF /* PlaceAddMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapDelegate.swift; sourceTree = "<group>"; };
 		7244B8F028B9FD0C00AC9BAF /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
 		7244B8F328B9FD2C00AC9BAF /* MainMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMapViewController.xib; sourceTree = "<group>"; };
 		7245191428B5FD8A00FA48A2 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -110,6 +105,9 @@
 		72559C0D28BA0055006F3E8F /* MainMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewModel.swift; sourceTree = "<group>"; };
 		72559C0F28BA0130006F3E8F /* MainMapUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapUsecase.swift; sourceTree = "<group>"; };
 		72559C1128BA03B6006F3E8F /* MainMapBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapBuilder.swift; sourceTree = "<group>"; };
+		7289F72528BA1CF0007501A2 /* PlaceAddMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapViewModel.swift; sourceTree = "<group>"; };
+		7289F72728BA1D02007501A2 /* PlaceAddMapUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapUsecase.swift; sourceTree = "<group>"; };
+		7289F72A28BA1D1F007501A2 /* PlaceAddMapBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapBuilder.swift; sourceTree = "<group>"; };
 		728EC25428B0C1A00032C4C2 /* SplashBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashBuilder.swift; sourceTree = "<group>"; };
 		728F760928B504FE00386F08 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		728F760B28B5059500386F08 /* NoticeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeViewController.xib; sourceTree = "<group>"; };
@@ -177,22 +175,13 @@
 		7244B8E228B9F15000AC9BAF /* place_view */ = {
 			isa = PBXGroup;
 			children = (
-				7244B8ED28B9F60000AC9BAF /* delegate */,
 				7244B8E028B9EF9500AC9BAF /* PlaceAddMapViewController.swift */,
 				7244B8E528B9F1BF00AC9BAF /* PlaceAddMapViewController.xib */,
-				7244B8E728B9F43E00AC9BAF /* PlaceAddMapViewModel.swift */,
-				7244B8E928B9F44A00AC9BAF /* PlaceAddMapBuilder.swift */,
-				7244B8EB28B9F47B00AC9BAF /* PlaceAddMapUsecase.swift */,
+				7289F72528BA1CF0007501A2 /* PlaceAddMapViewModel.swift */,
+				7289F72728BA1D02007501A2 /* PlaceAddMapUsecase.swift */,
+				7289F72A28BA1D1F007501A2 /* PlaceAddMapBuilder.swift */,
 			);
 			path = place_view;
-			sourceTree = "<group>";
-		};
-		7244B8ED28B9F60000AC9BAF /* delegate */ = {
-			isa = PBXGroup;
-			children = (
-				7244B8EE28B9F60B00AC9BAF /* PlaceAddMapDelegate.swift */,
-			);
-			path = delegate;
 			sourceTree = "<group>";
 		};
 		7244B8F228B9FD1200AC9BAF /* main_map */ = {
@@ -512,29 +501,28 @@
 				72E3DFC828B35F620066B5BE /* PublishRelay.swift in Sources */,
 				728EC25528B0C1A00032C4C2 /* SplashBuilder.swift in Sources */,
 				72D1154428B6226900F16705 /* WritePostViewController.swift in Sources */,
-				7244B8EF28B9F60B00AC9BAF /* PlaceAddMapDelegate.swift in Sources */,
 				720CBE4328B8BB5500FBABFF /* LocationSearchBarDelegate.swift in Sources */,
 				7246703928B4D5FC00A16355 /* KakaoLoginManager.swift in Sources */,
 				72559C0E28BA0055006F3E8F /* MainMapViewModel.swift in Sources */,
 				72E3DFCA28B370AE0066B5BE /* MapBuilder.swift in Sources */,
-				7244B8E828B9F43E00AC9BAF /* PlaceAddMapViewModel.swift in Sources */,
 				720CBE4128B8B89700FBABFF /* WriteUsecase.swift in Sources */,
 				7245191828B61B0B00FA48A2 /* PlaceDTO.swift in Sources */,
+				7289F72B28BA1D1F007501A2 /* PlaceAddMapBuilder.swift in Sources */,
 				724FE72128AF75AC00BCAD05 /* MapViewController.swift in Sources */,
 				720CBE4528B8C0A600FBABFF /* WriteBuilder.swift in Sources */,
 				728F760A28B504FE00386F08 /* NoticeViewController.swift in Sources */,
 				7244B8F128B9FD0C00AC9BAF /* MainMapViewController.swift in Sources */,
+				7289F72828BA1D02007501A2 /* PlaceAddMapUsecase.swift in Sources */,
 				720B2E8728AF8342008F5853 /* MapViewModel.swift in Sources */,
 				72559C1228BA03B6006F3E8F /* MainMapBuilder.swift in Sources */,
 				724FE71D28AF75AC00BCAD05 /* AppDelegate.swift in Sources */,
 				724FE71F28AF75AC00BCAD05 /* SceneDelegate.swift in Sources */,
-				7244B8EC28B9F47B00AC9BAF /* PlaceAddMapUsecase.swift in Sources */,
 				72E3DFCF28B3762D0066B5BE /* CompositionRoot.swift in Sources */,
 				720B2E8E28AF8480008F5853 /* PermissionManager.swift in Sources */,
 				7245191528B5FD8A00FA48A2 /* FirebaseManager.swift in Sources */,
 				7244B8E128B9EF9500AC9BAF /* PlaceAddMapViewController.swift in Sources */,
+				7289F72628BA1CF0007501A2 /* PlaceAddMapViewModel.swift in Sources */,
 				720B2E8B28AF8401008F5853 /* MapUsecase.swift in Sources */,
-				7244B8EA28B9F44A00AC9BAF /* PlaceAddMapBuilder.swift in Sources */,
 				724FE74D28AF772100BCAD05 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

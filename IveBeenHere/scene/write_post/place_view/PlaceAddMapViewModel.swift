@@ -10,15 +10,20 @@ import Foundation
 final class PlaceAddMapViewModel {
     var placeAddMapManagable: PlaceAddMapUsecase?
     var viewDidLoad = PublishRelay<Void>()
+    var draggedPoint = PublishRelay<Coordinate>()
     private let disposeBag = DisposeBag()
     
-    var setMapView = PublishRelay<Void>()
+    var viewAttribute = PublishRelay<Void>()
     init() {
         viewDidLoad.bind { [weak self] _ in
             guard let self = self else { return }
-            self.setMapView.accept(value: ())
+            self.viewAttribute.accept(value: ())
         }
         .disposed(by: disposeBag)
         
+        draggedPoint.bind { [weak self] coordi in
+            guard let self = self else { return }
+            print("coordi : \(coordi)")
+        }
     }
 }

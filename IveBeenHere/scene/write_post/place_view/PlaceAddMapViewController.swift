@@ -6,12 +6,10 @@
 //
 
 import UIKit
-import MapKit
 
 final class PlaceAddMapViewController: UIViewController {
     static let id = String(describing: PlaceAddMapViewController.self)
     
-    private let mapDelegate = PlaceAddMapDelegate()
     private let disposeBag = DisposeBag()
     
     var viewModel: PlaceAddMapViewModel? {
@@ -19,9 +17,7 @@ final class PlaceAddMapViewController: UIViewController {
             binding()
         }
     }
-    
-    @IBOutlet weak var mapView: MKMapView!
-    
+    let mapViewController = MapBuilder().build()
     static func instance() -> PlaceAddMapViewController {
         return PlaceAddMapViewController(nibName: Self.id, bundle: nil)
     }
@@ -33,20 +29,21 @@ final class PlaceAddMapViewController: UIViewController {
 }
 extension PlaceAddMapViewController {
     private func binding() {
-        viewModel?.setMapView
+        viewModel?.viewAttribute
             .observe(on: DispatchQueue.main)
             .bind(onNext: { [weak self] _ in
                 guard let self = self else { return }
-                self.mapView.delegate = self.mapDelegate
+                self.viewAttribute()
             })
             .disposed(by: disposeBag)
-
     }
     
-    private func setCamera(by coordinate: Coordinate) {
-        let centerCoordi = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        guard let latMeter = CLLocationDistance(exactly: 2000), let longMeter = CLLocationDistance(exactly: 2000) else { return }
-        let region = MKCoordinateRegion(center: centerCoordi, latitudinalMeters: latMeter, longitudinalMeters: longMeter)
-        mapView.setRegion(mapView.regionThatFits(region), animated: true)
+    private func viewAttribute() {
+        view.addSubview(mapViewController.view)
+        guard let draggedPoint = viewModel?.draggedPoint else { return }
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.mapViewController.addAnnotationToUserLocation(draggedRelay: draggedPoint)
+        }
     }
 }
