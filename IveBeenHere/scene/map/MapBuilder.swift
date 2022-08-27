@@ -18,16 +18,13 @@ class MapBuilder: MapBuildingLogic {
         let viewModel = MapViewModel()
         let mapUsecase = MapUsecase()
         let permissionManager = PermissionManager()
-        let kakaoLoginManager = KakaoLoginManager()
         
         viewModel.usecase = mapUsecase
         mapUsecase.permissionManager = permissionManager
         mapUsecase.viewModelResponsable = viewModel
-        mapUsecase.kakaoLoginManagable = kakaoLoginManager
         
         viewController.viewModel = viewModel
         permissionManager.coordiUpdatable = mapUsecase
-        kakaoLoginManager.mapUsecaseLoginUpdatable = mapUsecase
         
         return viewController
     }

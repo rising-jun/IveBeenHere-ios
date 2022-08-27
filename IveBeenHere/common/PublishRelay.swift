@@ -47,6 +47,7 @@ final class PublishRelay<T>: Disposable {
         }
     }
     
+    
     func removeBind() {
         binders.removeAll()
     }

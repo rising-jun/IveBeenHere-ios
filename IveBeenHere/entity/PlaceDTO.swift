@@ -16,12 +16,7 @@ struct SnapInfo: Codable {
 }
 
 struct PlaceDTO: Codable {
-    let region: Region
     let latitude: Int
     let name: String
     let longitude: Int
-}
-
-struct Region: Codable {
-    let city: [String]
 }

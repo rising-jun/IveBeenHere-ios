@@ -10,7 +10,7 @@ import KakaoSDKUser
 import Foundation
 
 final class KakaoLoginManager {
-    var mapUsecaseLoginUpdatable: MapUsecaseLoginUpdatable?
+    var mapUsecaseLoginUpdatable: MainMapUsecaseLoginUpdatable?
 
     enum Key {
         static let token = "Token"

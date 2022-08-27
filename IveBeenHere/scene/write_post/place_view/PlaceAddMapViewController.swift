@@ -1,18 +1,20 @@
 //
-//  ViewController.swift
+//  PlaceAddMapViewController.swift
 //  IveBeenHere
 //
-//  Created by 김동준 on 2022/08/19.
+//  Created by 김동준 on 2022/08/27.
 //
 
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
-    static let id = String(describing: MapViewController.self)
+final class PlaceAddMapViewController: UIViewController {
+    static let id = String(describing: PlaceAddMapViewController.self)
+    
+    private let mapDelegate = PlaceAddMapDelegate()
     private let disposeBag = DisposeBag()
-    private let mapViewDelegate = MapViewDelegate()
-    var viewModel: MapViewModelType? {
+    
+    var viewModel: PlaceAddMapViewModel? {
         didSet {
             binding()
         }
@@ -20,33 +22,25 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    static func instance() -> MapViewController {
-        return MapViewController(nibName: id, bundle: nil)
+    static func instance() -> PlaceAddMapViewController {
+        return PlaceAddMapViewController(nibName: Self.id, bundle: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.action()
-            .viewDidLoad
-            .accept(value: ())
+        viewModel?.viewDidLoad.accept(value: ())
     }
 }
-extension MapViewController {
+extension PlaceAddMapViewController {
     private func binding() {
-        viewModel?.state()
-            .setUserLocationCoordi
+        viewModel?.setMapView
             .observe(on: DispatchQueue.main)
-            .bind(onNext: { [weak self] coordinate in
+            .bind(onNext: { [weak self] _ in
                 guard let self = self else { return }
-                self.setMapView(by: coordinate)
+                self.mapView.delegate = self.mapDelegate
             })
             .disposed(by: disposeBag)
-    }
-    
-    private func setMapView(by coordinate: Coordinate) {
-        setCamera(by: coordinate)
-        mapView.delegate = mapViewDelegate
-        mapView.showsUserLocation = true
+
     }
     
     private func setCamera(by coordinate: Coordinate) {
