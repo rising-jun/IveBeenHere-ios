@@ -16,7 +16,7 @@ struct SnapInfo: Codable {
 }
 
 struct PlaceDTO: Codable {
-    let latitude: Int
+    let latitude: Double
     let name: String
-    let longitude: Int
+    let longitude: Double
 }

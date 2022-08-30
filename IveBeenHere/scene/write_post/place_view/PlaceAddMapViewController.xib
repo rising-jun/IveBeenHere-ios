@@ -10,6 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceAddMapViewController">
             <connections>
+                <outlet property="addButton" destination="GZI-HX-nR9" id="fRh-un-Gso"/>
+                <outlet property="addButtonBottomConstraint" destination="AG6-iu-IFx" id="ojx-6U-jRY"/>
+                <outlet property="placeTitleBottomConstraint" destination="s5K-G2-Oud" id="5DP-O7-PZS"/>
+                <outlet property="placeTitleField" destination="wZD-tp-6Mt" id="puc-CK-BZS"/>
                 <outlet property="view" destination="iN0-l3-epB" id="t0D-yv-ZPW"/>
             </connections>
         </placeholder>
@@ -17,8 +21,37 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wZD-tp-6Mt">
+                    <rect key="frame" x="30" y="827" width="250" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="DmQ-Iv-iH5"/>
+                        <constraint firstAttribute="width" constant="250" id="PkJ-Hj-HbP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZI-HX-nR9">
+                    <rect key="frame" x="334" y="827" width="50" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="2tA-Ak-teH"/>
+                        <constraint firstAttribute="width" constant="50" id="ho9-Lc-Ade"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="추가"/>
+                    <connections>
+                        <action selector="addButtonTapped:" destination="-1" eventType="touchUpInside" id="lBQ-nN-pc9"/>
+                    </connections>
+                </button>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GZI-HX-nR9" secondAttribute="trailing" constant="30" id="3Rs-kz-qM0"/>
+                <constraint firstItem="GZI-HX-nR9" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="AG6-iu-IFx"/>
+                <constraint firstItem="wZD-tp-6Mt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="bMo-PX-teX"/>
+                <constraint firstItem="wZD-tp-6Mt" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="s5K-G2-Oud"/>
+            </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="101.78571428571428"/>
         </view>
     </objects>

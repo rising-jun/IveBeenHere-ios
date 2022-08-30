@@ -72,8 +72,8 @@ extension FirebaseManager: FirebaseManagable {
         
         Firestore.firestore()
             .collection("VisitData")
-            .document("PlaceDTOs")
-            .updateData(["placeDTOs" : FieldValue.arrayUnion([resultJson])])
+            .document("PlaceDTO")
+            .updateData(["PlaceDTO" : FieldValue.arrayUnion([resultJson])])
         completion(.success(.success))
     }
 }

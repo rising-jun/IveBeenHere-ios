@@ -16,9 +16,9 @@ class PlaceAddMapBuilder: PlaceAddMapBuildingLogic {
     func build() -> Destination {
         let viewController = PlaceAddMapViewController.instance()
         let viewModel = PlaceAddMapViewModel()
-        let mapUsecase = PlaceAddMapUsecase()
-        
+        let mapAddUsecase = PlaceAddMapUsecase()
         viewController.viewModel = viewModel
+        viewModel.placeAddMapManagable = mapAddUsecase
         return viewController
     }
 }

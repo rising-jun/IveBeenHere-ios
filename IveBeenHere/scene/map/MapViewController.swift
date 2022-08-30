@@ -69,6 +69,7 @@ extension MapViewController {
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: coordi.latitude, longitude: coordi.longitude)
         annotation.title = "여기!"
+        draggedRelay.accept(value: coordi)
         mapViewDelegate.draggedPinRelay = draggedRelay
         mapView.addAnnotation(annotation)
         mapView.showsUserLocation = false
