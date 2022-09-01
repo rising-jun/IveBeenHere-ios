@@ -21,12 +21,14 @@ final class WritePostViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var locationSearchBar: UISearchBar!
+    @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var contentText: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         locationSearchBar.delegate = searchBarDelegate
+        viewModel?.viewDidLoad.accept(value: ())
     }
     
     @IBAction func AddLocationButtonTapped(_ sender: Any) {
@@ -43,6 +45,16 @@ extension WritePostViewController {
             .bind(onNext: { [weak self] _ in
                 guard let self = self else { return }
                 self.presentPlaceAddMap()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel?.locationRelay
+            .observe(on: DispatchQueue.main)
+            .bind(onNext: { [weak self] places in
+                guard let self = self else { return }
+                print("excute")
+                
+                self.locationSearchBar.scopeButtonTitles = places.map { $0.name }
             })
             .disposed(by: disposeBag)
     }

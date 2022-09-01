@@ -11,7 +11,7 @@ struct SnapInfo: Codable {
     let placeDTOS: [PlaceDTO]
     
     enum CodingKeys: String, CodingKey {
-        case placeDTOS = "placeDTOs"
+        case placeDTOS = "PlaceDTO"
     }
 }
 

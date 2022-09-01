@@ -55,7 +55,7 @@ extension FirebaseManager: FirebaseManagable {
         
         Firestore.firestore()
             .collection("VisitData")
-            .document("PlaceDTOs")
+            .document("PlaceDTO")
             .getDocument(completion: documentSnapshotCompletion)
     }
     

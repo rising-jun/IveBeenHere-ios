@@ -8,10 +8,22 @@
 import Foundation
 
 final class WriteUsecase {
-    var firebaseManagable = FirebaseManager()
+    var firebaseManagable: FirebaseManagable
+    var viewModelResponse: WriteViewModelOutput?
+    init() {
+        firebaseManagable = FirebaseManager.shared
+    }
 }
 extension WriteUsecase {
     func requestPlaces() {
-
+        firebaseManagable.readPlaceDTO { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let places):
+                self.viewModelResponse?.locationRelay.accept(value: places)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

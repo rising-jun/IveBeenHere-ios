@@ -16,9 +16,11 @@ class WriteBuilder: WriteBuildingLogic {
     func build() -> Destination {
         let viewController = WritePostViewController.instance()
         let viewModel = WriteViewModel()
-        let mapUsecase = WriteUsecase()
+        let usecase = WriteUsecase()
         
         viewController.viewModel = viewModel
+        viewModel.writeManagable = usecase
+        usecase.viewModelResponse = viewModel
         return viewController
     }
 }

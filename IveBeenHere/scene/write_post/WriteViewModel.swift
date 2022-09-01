@@ -14,13 +14,14 @@ final class WriteViewModel {
     var searchBarDidEditing = PublishRelay<String>()
     
     private let disposeBag = DisposeBag()
-    private var location = [PlaceDTO]()
+    private var places = [PlaceDTO]()
+    var locationRelay = PublishRelay<[PlaceDTO]>()
     
     var presentAddLocation = PublishRelay<Void>()
     init() {
         viewDidLoad.bind { [weak self] _ in
             guard let self = self else { return }
-            
+            self.writeManagable?.requestPlaces()
         }
         .disposed(by: disposeBag)
         
@@ -34,8 +35,19 @@ final class WriteViewModel {
             
         }
         .disposed(by: disposeBag)
+        
+        locationRelay.bind { [weak self] places in
+            print("hello")
+            guard let self = self else { return }
+            self.places = places
+        }
+        .disposed(by: disposeBag)
+        
     }
 }
-extension WriteViewModel {
+extension WriteViewModel: WriteViewModelOutput {
     
+}
+protocol WriteViewModelOutput {
+    var locationRelay: PublishRelay<[PlaceDTO]> { get }
 }

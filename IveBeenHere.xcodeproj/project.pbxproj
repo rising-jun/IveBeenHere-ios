@@ -16,6 +16,7 @@
 		720CBE4528B8C0A600FBABFF /* WriteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720CBE4428B8C0A600FBABFF /* WriteBuilder.swift */; };
 		720DF86F28B5F54A002BAFB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 720DF86E28B5F54A002BAFB9 /* GoogleService-Info.plist */; };
 		7230741F28B4B87F00A29CEA /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230741E28B4B87F00A29CEA /* MapViewDelegate.swift */; };
+		7238EEF228C09E3B0040CD18 /* SearchTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7238EEF128C09E3B0040CD18 /* SearchTableDelegate.swift */; };
 		7244B8E128B9EF9500AC9BAF /* PlaceAddMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244B8E028B9EF9500AC9BAF /* PlaceAddMapViewController.swift */; };
 		7244B8E628B9F1C000AC9BAF /* PlaceAddMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7244B8E528B9F1BF00AC9BAF /* PlaceAddMapViewController.xib */; };
 		7244B8F128B9FD0C00AC9BAF /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244B8F028B9FD0C00AC9BAF /* MainMapViewController.swift */; };
@@ -82,6 +83,7 @@
 		720CBE4428B8C0A600FBABFF /* WriteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteBuilder.swift; sourceTree = "<group>"; };
 		720DF86E28B5F54A002BAFB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7230741E28B4B87F00A29CEA /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
+		7238EEF128C09E3B0040CD18 /* SearchTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableDelegate.swift; sourceTree = "<group>"; };
 		7244B8E028B9EF9500AC9BAF /* PlaceAddMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapViewController.swift; sourceTree = "<group>"; };
 		7244B8E528B9F1BF00AC9BAF /* PlaceAddMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceAddMapViewController.xib; sourceTree = "<group>"; };
 		7244B8F028B9FD0C00AC9BAF /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,15 @@
 			isa = PBXGroup;
 			children = (
 				7230741E28B4B87F00A29CEA /* MapViewDelegate.swift */,
+			);
+			path = delegate;
+			sourceTree = "<group>";
+		};
+		7238EEEF28C09E230040CD18 /* delegate */ = {
+			isa = PBXGroup;
+			children = (
+				720CBE4228B8BB5500FBABFF /* LocationSearchBarDelegate.swift */,
+				7238EEF128C09E3B0040CD18 /* SearchTableDelegate.swift */,
 			);
 			path = delegate;
 			sourceTree = "<group>";
@@ -336,12 +347,12 @@
 		72D1154228B6225900F16705 /* write_post */ = {
 			isa = PBXGroup;
 			children = (
+				7238EEEF28C09E230040CD18 /* delegate */,
 				7244B8E228B9F15000AC9BAF /* place_view */,
 				72D1154328B6226900F16705 /* WritePostViewController.swift */,
 				72D1154528B6227700F16705 /* WritePostViewController.xib */,
 				720CBE3E28B8B87A00FBABFF /* WriteViewModel.swift */,
 				720CBE4028B8B89700FBABFF /* WriteUsecase.swift */,
-				720CBE4228B8BB5500FBABFF /* LocationSearchBarDelegate.swift */,
 				720CBE4428B8C0A600FBABFF /* WriteBuilder.swift */,
 			);
 			path = write_post;
@@ -502,6 +513,7 @@
 				728EC25528B0C1A00032C4C2 /* SplashBuilder.swift in Sources */,
 				72D1154428B6226900F16705 /* WritePostViewController.swift in Sources */,
 				720CBE4328B8BB5500FBABFF /* LocationSearchBarDelegate.swift in Sources */,
+				7238EEF228C09E3B0040CD18 /* SearchTableDelegate.swift in Sources */,
 				7246703928B4D5FC00A16355 /* KakaoLoginManager.swift in Sources */,
 				72559C0E28BA0055006F3E8F /* MainMapViewModel.swift in Sources */,
 				72E3DFCA28B370AE0066B5BE /* MapBuilder.swift in Sources */,
