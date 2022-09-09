@@ -18,7 +18,6 @@ final class MapViewModel {
     var setUserLocationCoordi = PublishRelay<Coordinate>()
     var viewAttirbute = PublishRelay<Void>()
     var didLogin = PublishRelay<Bool>()
-    
         
     init() {
         viewDidLoad.bind { [weak self] _ in
@@ -26,21 +25,6 @@ final class MapViewModel {
             self.viewAttirbute.accept(value: ())
             self.usecase?.requestPermission()
         }.disposed(by: disposeBag)
-        
-        
-        addPostButtonTapped.bind { [weak self] _ in
-            guard let self = self else { return }
-            self.usecase?.checkLogin()
-        }.disposed(by: disposeBag)
-        
-        userRequestLogin
-            .observe(on: DispatchQueue.main)
-            .bind { [weak self] _ in
-            guard let self = self else { return }
-            self.usecase?.requestKakaoLogin()
-        }
-        .disposed(by: disposeBag)
-        
     }
 }
 
@@ -58,20 +42,12 @@ typealias MapViewModelType = MapViewModelInput & MapViewModelOutput & MapViewMod
 
 protocol MapViewModelInput {
     var viewDidLoad: PublishRelay<Void> { get }
-    var addPostButtonTapped: PublishRelay<Void> { get }
-    var userRequestLogin: PublishRelay<Void> { get }
 }
 protocol MapViewModelOutput {
-    var viewAttirbute: PublishRelay<Void> { get }
     var setUserLocationCoordi: PublishRelay<Coordinate> { get }
-    var didLogin: PublishRelay<Bool> { get }
+    var viewAttirbute: PublishRelay<Void> { get }
 }
 protocol MapViewModelBinding {
     func action() -> MapViewModelInput
     func state() -> MapViewModelOutput
-}
-
-enum LocationPermission {
-    case available
-    case unavailable
 }

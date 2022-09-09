@@ -11,7 +11,6 @@ import FirebaseFirestore
 protocol FirebaseManagable {
     func readPlaceDTO(completion: @escaping(Result<[PlaceDTO], FireBaseError>) -> Void)
     func writePlaceDTO(placeDTO: PlaceDTO, completion: @escaping(Result<FirebaseWriteResult, FireBaseError>) -> Void)
-    func readRegion(completion: @escaping (Result<Region, FireBaseError>) -> Void)
 }
 
 final class FirebaseManager {
@@ -33,10 +32,6 @@ final class FirebaseManagerStub: FirebaseManagable {
     
     func readPlaceDTO(completion: @escaping (Result<[PlaceDTO], FireBaseError>) -> Void) {
         testResult ? completion(.success([])) : completion(.failure(.nilDataError))
-    }
-    
-    func readRegion(completion: @escaping (Result<Region, FireBaseError>) -> Void) {
-        testResult ? completion(.success(Region(city: ["테스트지역"]))) : completion(.failure(.nilDataError))
     }
 }
 
@@ -60,30 +55,7 @@ extension FirebaseManager: FirebaseManagable {
         
         Firestore.firestore()
             .collection("VisitData")
-            .document("PlaceDTOs")
-            .getDocument(completion: documentSnapshotCompletion)
-    }
-    
-    func readRegion(completion: @escaping (Result<Region, FireBaseError>) -> Void) {
-        let documentSnapshotCompletion: ((DocumentSnapshot?, Error?) -> ()) = { document, error in
-            DispatchQueue.global().async {
-                guard let documentData = document?.data() else { return completion(.failure(.nilDataError)) }
-                
-                guard let regionJsonData = try? JSONSerialization.data(withJSONObject: documentData, options: .prettyPrinted) else {
-                    return completion(.failure(.jsonParsingError))
-                }
-                
-                guard let regionDTO = try? JSONDecoder().decode(Region.self, from: regionJsonData) else {
-                    return completion(.failure(.jsonParsingError))
-                }
-
-                completion(.success(regionDTO))
-            }
-        }
-        
-        Firestore.firestore()
-            .collection("VisitData")
-            .document("Region")
+            .document("PlaceDTO")
             .getDocument(completion: documentSnapshotCompletion)
     }
     
@@ -100,8 +72,8 @@ extension FirebaseManager: FirebaseManagable {
         
         Firestore.firestore()
             .collection("VisitData")
-            .document("PlaceDTOs")
-            .updateData(["placeDTOs" : FieldValue.arrayUnion([resultJson])])
+            .document("PlaceDTO")
+            .updateData(["PlaceDTO" : FieldValue.arrayUnion([resultJson])])
         completion(.success(.success))
     }
 }

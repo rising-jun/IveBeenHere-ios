@@ -11,17 +11,12 @@ struct SnapInfo: Codable {
     let placeDTOS: [PlaceDTO]
     
     enum CodingKeys: String, CodingKey {
-        case placeDTOS = "placeDTOs"
+        case placeDTOS = "PlaceDTO"
     }
 }
 
 struct PlaceDTO: Codable {
-    let region: Region
-    let latitude: Int
+    let latitude: Double
     let name: String
-    let longitude: Int
-}
-
-struct Region: Codable {
-    let city: [String]
+    let longitude: Double
 }

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WritePostViewController" customModule="IveBeenHere" customModuleProvider="target">
+            <connections>
+                <outlet property="contentText" destination="kTQ-wa-b3r" id="Uex-6z-TjH"/>
+                <outlet property="imageView" destination="r2v-a2-5Rm" id="mLb-4H-jOo"/>
+                <outlet property="locationSearchBar" destination="xny-ko-lER" id="EbQ-uq-qK8"/>
+                <outlet property="searchTableView" destination="Xts-Vl-EJp" id="UCb-jy-4SZ"/>
+                <outlet property="titleField" destination="qjs-hT-YdV" id="IF2-Rm-Xcu"/>
+                <outlet property="view" destination="iN0-l3-epB" id="qLH-iK-2E3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GGR-5b-Npi">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r2v-a2-5Rm">
+                            <rect key="frame" x="87" y="49.5" width="240" height="241.5"/>
+                            <color key="backgroundColor" systemColor="systemGray4Color"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="240" id="RmV-lt-6cY"/>
+                                <constraint firstAttribute="height" constant="240" id="hRy-Vx-Fns"/>
+                            </constraints>
+                            <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
+                        </imageView>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="제목을 입력하세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qjs-hT-YdV">
+                            <rect key="frame" x="30" y="421" width="354" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="내용을 입력하세요." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kTQ-wa-b3r">
+                            <rect key="frame" x="30" y="495" width="354" height="150"/>
+                            <color key="backgroundColor" systemColor="systemGray4Color"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="37n-li-fsE"/>
+                                <constraint firstAttribute="height" constant="150" id="eGi-Hq-Xn7"/>
+                            </constraints>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <searchBar contentMode="redraw" placeholder="위치를 추가하세요." translatesAutoresizingMaskIntoConstraints="NO" id="xny-ko-lER">
+                            <rect key="frame" x="50" y="330" width="241" height="51"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wU0-94-8IQ">
+                            <rect key="frame" x="30" y="452" width="354" height="3"/>
+                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="3" id="xdz-NU-tjo"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eid-W5-IBx">
+                            <rect key="frame" x="311" y="340" width="73" height="31"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="위치추가"/>
+                            <connections>
+                                <action selector="AddLocationButtonTapped:" destination="-1" eventType="touchUpInside" id="dje-Kc-KRP"/>
+                            </connections>
+                        </button>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Xts-Vl-EJp">
+                            <rect key="frame" x="50" y="381" width="241" height="130"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="130" id="PZU-1T-unI"/>
+                            </constraints>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Xts-Vl-EJp" firstAttribute="leading" secondItem="5Jb-b9-ZWA" secondAttribute="leading" constant="50" id="19n-4c-skX"/>
+                        <constraint firstAttribute="bottom" secondItem="r2v-a2-5Rm" secondAttribute="bottom" constant="606" id="3ah-x7-lI4"/>
+                        <constraint firstItem="kTQ-wa-b3r" firstAttribute="top" secondItem="qjs-hT-YdV" secondAttribute="bottom" constant="40" id="5za-bt-sec"/>
+                        <constraint firstItem="5Jb-b9-ZWA" firstAttribute="trailing" secondItem="kTQ-wa-b3r" secondAttribute="trailing" constant="30" id="9q3-Ct-NAP"/>
+                        <constraint firstItem="Eid-W5-IBx" firstAttribute="leading" secondItem="xny-ko-lER" secondAttribute="trailing" constant="20" id="APt-dU-tEN"/>
+                        <constraint firstItem="qjs-hT-YdV" firstAttribute="trailing" secondItem="wU0-94-8IQ" secondAttribute="trailing" id="AW0-Tm-Sjk"/>
+                        <constraint firstItem="Eid-W5-IBx" firstAttribute="leading" secondItem="Xts-Vl-EJp" secondAttribute="trailing" constant="20" id="BTh-b7-sjV"/>
+                        <constraint firstItem="xny-ko-lER" firstAttribute="centerY" secondItem="Eid-W5-IBx" secondAttribute="centerY" id="Dfv-4m-gcZ"/>
+                        <constraint firstItem="Eid-W5-IBx" firstAttribute="trailing" secondItem="wU0-94-8IQ" secondAttribute="trailing" id="HSC-X3-Jzb"/>
+                        <constraint firstItem="kTQ-wa-b3r" firstAttribute="leading" secondItem="5Jb-b9-ZWA" secondAttribute="leading" constant="30" id="aAW-mJ-RlZ"/>
+                        <constraint firstItem="xny-ko-lER" firstAttribute="leading" secondItem="5Jb-b9-ZWA" secondAttribute="leading" constant="50" id="ajd-hh-Ovy"/>
+                        <constraint firstItem="5Jb-b9-ZWA" firstAttribute="trailing" secondItem="qjs-hT-YdV" secondAttribute="trailing" constant="30" id="cS8-9h-QLP"/>
+                        <constraint firstItem="r2v-a2-5Rm" firstAttribute="top" secondItem="GGR-5b-Npi" secondAttribute="top" constant="50" id="g1J-Rr-13i"/>
+                        <constraint firstAttribute="trailing" secondItem="Eid-W5-IBx" secondAttribute="trailing" constant="30" id="ges-Tr-4Uw"/>
+                        <constraint firstItem="qjs-hT-YdV" firstAttribute="top" secondItem="xny-ko-lER" secondAttribute="bottom" constant="40" id="h9M-Cx-8oE"/>
+                        <constraint firstItem="r2v-a2-5Rm" firstAttribute="centerX" secondItem="GGR-5b-Npi" secondAttribute="centerX" id="hzN-T2-sFS"/>
+                        <constraint firstItem="kTQ-wa-b3r" firstAttribute="top" secondItem="wU0-94-8IQ" secondAttribute="bottom" constant="40" id="jFV-Ek-rsE"/>
+                        <constraint firstItem="qjs-hT-YdV" firstAttribute="leading" secondItem="wU0-94-8IQ" secondAttribute="leading" id="k9p-ql-4xs"/>
+                        <constraint firstItem="qjs-hT-YdV" firstAttribute="leading" secondItem="5Jb-b9-ZWA" secondAttribute="leading" constant="30" id="lhK-c0-y1O"/>
+                        <constraint firstItem="Xts-Vl-EJp" firstAttribute="top" secondItem="xny-ko-lER" secondAttribute="bottom" id="q8f-Fz-RVw"/>
+                        <constraint firstItem="xny-ko-lER" firstAttribute="top" secondItem="r2v-a2-5Rm" secondAttribute="bottom" constant="40" id="t2f-Ss-eOo"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="NpN-54-XAV"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="5Jb-b9-ZWA"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="GGR-5b-Npi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HvT-bd-5os"/>
+                <constraint firstAttribute="bottom" secondItem="GGR-5b-Npi" secondAttribute="bottom" id="Imz-sx-v4Y"/>
+                <constraint firstAttribute="trailing" secondItem="GGR-5b-Npi" secondAttribute="trailing" id="K6O-1h-N73"/>
+                <constraint firstItem="GGR-5b-Npi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="NCr-7l-6aE"/>
+                <constraint firstItem="GGR-5b-Npi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UVj-nM-cyn"/>
+                <constraint firstItem="GGR-5b-Npi" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dVu-P8-YjW"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="132.58928571428572"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

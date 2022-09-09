@@ -14,7 +14,7 @@ struct AppDependency {
 enum CompositionRoot {
     static func resolve(scene: UIWindowScene) -> AppDependency {
         let navigationController = UINavigationController(
-            rootViewController: MapBuilder().build()
+            rootViewController: WriteBuilder().build()
         )
         let window = UIWindow(windowScene: scene)
         window.rootViewController = navigationController
