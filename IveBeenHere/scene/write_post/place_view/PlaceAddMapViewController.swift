@@ -18,9 +18,12 @@ final class PlaceAddMapViewController: UIViewController {
     }
     @IBOutlet weak var placeTitleField: UITextField!
     
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var placeTitleBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var addButtonBottomConstraint: NSLayoutConstraint!
+    
+    weak var presentableWriteView: WritePostViewPresentable?
     
     let mapViewController = MapBuilder().build()
     static func instance() -> PlaceAddMapViewController {
@@ -31,6 +34,11 @@ final class PlaceAddMapViewController: UIViewController {
         super.viewDidLoad()
         viewModel?.viewDidLoad.accept(value: ())
     }
+    
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        presentWriteView()
+    }
+    
     @IBAction func addButtonTapped(_ sender: Any) {
         guard let button = sender as? UIButton else { return }
         button.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -71,6 +79,7 @@ extension PlaceAddMapViewController {
         view.addSubview(mapViewController.view)
         view.bringSubviewToFront(placeTitleField)
         view.bringSubviewToFront(addButton)
+        view.bringSubviewToFront(closeButton)
         
         addButton.titleLabel?.adjustsFontSizeToFitWidth = true
         addButton.titleLabel?.numberOfLines = 1
@@ -105,6 +114,7 @@ extension PlaceAddMapViewController {
     }
     
     private func presentWriteView() {
-        self.dismiss(animated: true)
+        presentableWriteView?.didPopChildView()
+        dismiss(animated: true)
     }
 }

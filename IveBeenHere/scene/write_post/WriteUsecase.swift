@@ -26,4 +26,8 @@ extension WriteUsecase {
             }
         }
     }
+    
+    func requestWriteVisitDTO() {
+        
+    }
 }

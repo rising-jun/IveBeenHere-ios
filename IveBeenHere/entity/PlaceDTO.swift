@@ -15,6 +15,10 @@ struct SnapInfo: Codable {
     }
 }
 
+struct VisitDTO: Codable {
+    
+}
+
 struct PlaceDTO: Codable {
     let latitude: Double
     let name: String

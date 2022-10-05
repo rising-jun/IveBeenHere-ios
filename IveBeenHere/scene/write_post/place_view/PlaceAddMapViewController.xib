@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="addButton" destination="GZI-HX-nR9" id="fRh-un-Gso"/>
                 <outlet property="addButtonBottomConstraint" destination="AG6-iu-IFx" id="ojx-6U-jRY"/>
+                <outlet property="closeButton" destination="4sD-qO-l9e" id="aWR-Mn-u88"/>
                 <outlet property="placeTitleBottomConstraint" destination="s5K-G2-Oud" id="5DP-O7-PZS"/>
                 <outlet property="placeTitleField" destination="wZD-tp-6Mt" id="puc-CK-BZS"/>
                 <outlet property="view" destination="iN0-l3-epB" id="t0D-yv-ZPW"/>
@@ -43,6 +44,27 @@
                         <action selector="addButtonTapped:" destination="-1" eventType="touchUpInside" id="lBQ-nN-pc9"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sD-qO-l9e">
+                    <rect key="frame" x="360" y="54" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="7gl-gH-EIg"/>
+                        <constraint firstAttribute="height" constant="44" id="RHW-eP-XSM"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain">
+                        <attributedString key="attributedTitle">
+                            <fragment content="X">
+                                <attributes>
+                                    <font key="NSFont" size="25" name="Helvetica"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="hWZ-Zi-amJ"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -50,6 +72,8 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GZI-HX-nR9" secondAttribute="trailing" constant="30" id="3Rs-kz-qM0"/>
                 <constraint firstItem="GZI-HX-nR9" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="AG6-iu-IFx"/>
                 <constraint firstItem="wZD-tp-6Mt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="bMo-PX-teX"/>
+                <constraint firstItem="4sD-qO-l9e" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="jhw-lw-cxe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4sD-qO-l9e" secondAttribute="trailing" constant="10" id="lWb-Ws-ymg"/>
                 <constraint firstItem="wZD-tp-6Mt" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="s5K-G2-Oud"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="101.78571428571428"/>

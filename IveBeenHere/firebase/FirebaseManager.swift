@@ -15,25 +15,25 @@ protocol FirebaseManagable {
 
 final class FirebaseManager {
     static let shared: FirebaseManagable = FirebaseManager()
-    static func stub(testResult: Bool) -> FirebaseManagable {
-        return FirebaseManagerStub(testResult: testResult)
-    }
+//    static func stub(testResult: Bool) -> FirebaseManagable {
+//        return FirebaseManagerStub(testResult: testResult)
+//    }
 }
 
-final class FirebaseManagerStub: FirebaseManagable {
-    private let testResult: Bool
-    init(testResult: Bool) {
-        self.testResult = testResult
-    }
-    
-    func writePlaceDTO(placeDTO: PlaceDTO, completion: @escaping (Result<FirebaseWriteResult, FireBaseError>) -> Void) {
-        testResult ? completion(.success(.success)) : completion(.failure(.nilDataError))
-    }
-    
-    func readPlaceDTO(completion: @escaping (Result<[PlaceDTO], FireBaseError>) -> Void) {
-        testResult ? completion(.success([])) : completion(.failure(.nilDataError))
-    }
-}
+//final class FirebaseManagerStub: FirebaseManagable {
+//    private let testResult: Bool
+//    init(testResult: Bool) {
+//        self.testResult = testResult
+//    }
+//    
+//    func writePlaceDTO(placeDTO: PlaceDTO, completion: @escaping (Result<FirebaseWriteResult, FireBaseError>) -> Void) {
+//        testResult ? completion(.success(.success)) : completion(.failure(.nilDataError))
+//    }
+//    
+//    func readPlaceDTO(completion: @escaping (Result<[PlaceDTO], FireBaseError>) -> Void) {
+//        testResult ? completion(.success([])) : completion(.failure(.nilDataError))
+//    }
+//}
 
 extension FirebaseManager: FirebaseManagable {
     func readPlaceDTO(completion: @escaping (Result<[PlaceDTO], FireBaseError>) -> Void) {
@@ -75,6 +75,10 @@ extension FirebaseManager: FirebaseManagable {
             .document("PlaceDTO")
             .updateData(["PlaceDTO" : FieldValue.arrayUnion([resultJson])])
         completion(.success(.success))
+    }
+    
+    func writeVisitDTO(visitDTO: VisitDTO) {
+        
     }
 }
 
