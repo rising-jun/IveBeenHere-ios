@@ -9,7 +9,7 @@ import UIKit
 
 final class SearchTableDataSource: NSObject {
     private var places: [PlaceDTO] = []
-    var tappedRelay: PublishRelay<Int>?
+    var tappedRelay: PublishRelay<String>?
     
     func updatePlaces(from places: [PlaceDTO]) {
         self.places = places
@@ -27,7 +27,8 @@ extension SearchTableDataSource: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tappedRelay?.accept(value: indexPath.item)
+        tappedRelay?.accept(value: places[indexPath.item].name)
+        tableView.alpha = 0
     }
 }
 

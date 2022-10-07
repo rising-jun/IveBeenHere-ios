@@ -56,6 +56,7 @@
 		72E3DFD128B3775C0066B5BE /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E3DFD028B3775C0066B5BE /* MapViewController.xib */; };
 		72F5B97C28C9C0F300DF4262 /* FirebaseManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B97B28C9C0F300DF4262 /* FirebaseManagerTest.swift */; };
 		72F5B97E28C9C61700DF4262 /* FirebaseManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B97D28C9C61700DF4262 /* FirebaseManagerStub.swift */; };
+		72FD951228EEB53F00D3F31B /* ImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FD951128EEB53F00D3F31B /* ImagePickerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		72E3DFD228B37F3F0066B5BE /* SeoulLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SeoulLocation.gpx; sourceTree = "<group>"; };
 		72F5B97B28C9C0F300DF4262 /* FirebaseManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManagerTest.swift; sourceTree = "<group>"; };
 		72F5B97D28C9C61700DF4262 /* FirebaseManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManagerStub.swift; sourceTree = "<group>"; };
+		72FD951128EEB53F00D3F31B /* ImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 			children = (
 				720CBE4228B8BB5500FBABFF /* LocationSearchBarDelegate.swift */,
 				7238EEF128C09E3B0040CD18 /* SearchTableDataSource.swift */,
+				72FD951128EEB53F00D3F31B /* ImagePickerDelegate.swift */,
 			);
 			path = delegate;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				72E3DFCF28B3762D0066B5BE /* CompositionRoot.swift in Sources */,
 				720B2E8E28AF8480008F5853 /* PermissionManager.swift in Sources */,
 				7245191528B5FD8A00FA48A2 /* FirebaseManager.swift in Sources */,
+				72FD951228EEB53F00D3F31B /* ImagePickerDelegate.swift in Sources */,
 				7244B8E128B9EF9500AC9BAF /* PlaceAddMapViewController.swift in Sources */,
 				7289F72628BA1CF0007501A2 /* PlaceAddMapViewModel.swift in Sources */,
 				720B2E8B28AF8401008F5853 /* MapUsecase.swift in Sources */,

@@ -27,7 +27,11 @@ extension WriteUsecase {
         }
     }
     
-    func requestWriteVisitDTO() {
-        
+    func requestUploadImage(imageData: Data) async throws -> URL? {
+        try await firebaseManagable.uploadImage(from: imageData)
+    }
+    
+    func requestWriteVisitDTO(from visitDTO: VisitDTO) async throws -> Result<Void, FireBaseError> {
+        try await firebaseManagable.writeVisitDTO(visitDTO: visitDTO)
     }
 }

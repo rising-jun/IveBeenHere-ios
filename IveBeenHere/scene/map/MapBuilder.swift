@@ -24,7 +24,6 @@ class MapBuilder: MapBuildingLogic {
         mapUsecase.viewModelResponsable = viewModel
         viewController.viewModel = viewModel
         permissionManager.coordiUpdatable = mapUsecase
-        
         return viewController
     }
 }

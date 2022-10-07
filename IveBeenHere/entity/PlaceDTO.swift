@@ -16,7 +16,11 @@ struct SnapInfo: Codable {
 }
 
 struct VisitDTO: Codable {
-    
+    let place: PlaceDTO
+    let date: Date
+    let title: String?
+    let content: String?
+    let imageURL: String
 }
 
 struct PlaceDTO: Codable {

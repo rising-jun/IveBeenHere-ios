@@ -7,17 +7,20 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseStorage
 
 protocol FirebaseManagable {
     func readPlaceDTO(completion: @escaping(Result<[PlaceDTO], FireBaseError>) -> Void)
     func writePlaceDTO(placeDTO: PlaceDTO, completion: @escaping(Result<FirebaseWriteResult, FireBaseError>) -> Void)
+    func uploadImage(from data: Data) async throws -> URL?
+    func writeVisitDTO(visitDTO: VisitDTO) async throws -> Result<Void, FireBaseError>
 }
 
 final class FirebaseManager {
     static let shared: FirebaseManagable = FirebaseManager()
-//    static func stub(testResult: Bool) -> FirebaseManagable {
-//        return FirebaseManagerStub(testResult: testResult)
-//    }
+    //    static func stub(testResult: Bool) -> FirebaseManagable {
+    //        return FirebaseManagerStub(testResult: testResult)
+    //    }
 }
 
 //final class FirebaseManagerStub: FirebaseManagable {
@@ -36,6 +39,24 @@ final class FirebaseManager {
 //}
 
 extension FirebaseManager: FirebaseManagable {
+    func uploadImage(from data: Data) async throws -> URL? {
+        var formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd_HH_mm_ss"
+        var currentDate = formatter.string(from: Date())
+        
+        let storageRef = Storage.storage().reference().child("\(currentDate).png")
+        return await withCheckedContinuation { continues in
+            storageRef.putData(data) { metaData, error in
+                storageRef.downloadURL { url, error in
+                    guard let url = url else {
+                        return
+                    }
+                    continues.resume(returning: url)
+                }
+            }.resume()
+        }
+    }
+    
     func readPlaceDTO(completion: @escaping (Result<[PlaceDTO], FireBaseError>) -> Void) {
         let documentSnapshotCompletion: ((DocumentSnapshot?, Error?) -> ()) = { document, error in
             DispatchQueue.global().async {
@@ -67,7 +88,7 @@ extension FirebaseManager: FirebaseManagable {
         guard let result = try? JSONSerialization.jsonObject(with: jsonData, options: []) else {
             return completion(.failure(.jsonParsingError))
         }
-
+        
         guard let resultJson = result as? [String: Any] else { return completion(.failure(.jsonParsingError)) }
         
         Firestore.firestore()
@@ -77,8 +98,26 @@ extension FirebaseManager: FirebaseManagable {
         completion(.success(.success))
     }
     
-    func writeVisitDTO(visitDTO: VisitDTO) {
-        
+    func writeVisitDTO(visitDTO: VisitDTO) async throws -> Result<Void, FireBaseError> {
+        return await withCheckedContinuation { continues in
+            guard let jsonData = try? JSONEncoder().encode(visitDTO) else {
+                return continues.resume(returning: .failure(.jsonParsingError))
+            }
+            
+            guard let result = try? JSONSerialization.jsonObject(with: jsonData, options: []) else {
+                return continues.resume(returning: .failure(.jsonParsingError))
+            }
+            
+            guard let resultJson = result as? [String: Any] else {
+                return continues.resume(returning: .failure(.jsonParsingError))
+            }
+            
+            Firestore.firestore()
+                .collection("VisitData")
+                .document("VisitDTO")
+                .updateData(["VisitDTO" : FieldValue.arrayUnion([resultJson])])
+            continues.resume(returning: .success(()))
+        }
     }
 }
 
