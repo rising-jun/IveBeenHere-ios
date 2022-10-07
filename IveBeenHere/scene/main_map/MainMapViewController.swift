@@ -63,10 +63,14 @@ extension MainMapViewController {
     }
     
     private func presentLoginPopup() {
-        let popup = NoticeViewController(nibName: NoticeViewController.id, bundle: nil)
-        popup.modalPresentationStyle = .overCurrentContext
-        popup.loginButtonTapped = viewModel?.action().userRequestLogin
-        self.present(popup, animated: false, completion: nil)
+        let alert = UIAlertController(title: "로그인이 필요합니다.", message: "로그인 후 사용해주세요.", preferredStyle: .alert)
+        let kakaoLogin = UIAlertAction(title: "카카오 로그인", style: .default) { alert in
+            self.viewModel?.action().userRequestLogin.accept(value: ())
+        }
+        let close = UIAlertAction(title: "나중에", style: .default)
+        alert.addAction(kakaoLogin)
+        alert.addAction(close)
+        self.present(alert, animated: false, completion: nil)
     }
     
     private func presentWritePopup() {

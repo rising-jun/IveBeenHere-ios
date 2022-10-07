@@ -45,8 +45,6 @@
 		7289F72828BA1D02007501A2 /* PlaceAddMapUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289F72728BA1D02007501A2 /* PlaceAddMapUsecase.swift */; };
 		7289F72B28BA1D1F007501A2 /* PlaceAddMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289F72A28BA1D1F007501A2 /* PlaceAddMapBuilder.swift */; };
 		728EC25528B0C1A00032C4C2 /* SplashBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728EC25428B0C1A00032C4C2 /* SplashBuilder.swift */; };
-		728F760A28B504FE00386F08 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728F760928B504FE00386F08 /* NoticeViewController.swift */; };
-		728F760C28B5059500386F08 /* NoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 728F760B28B5059500386F08 /* NoticeViewController.xib */; };
 		72D1154428B6226900F16705 /* WritePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D1154328B6226900F16705 /* WritePostViewController.swift */; };
 		72D1154628B6227700F16705 /* WritePostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D1154528B6227700F16705 /* WritePostViewController.xib */; };
 		72E3DFC828B35F620066B5BE /* PublishRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E3DFC728B35F620066B5BE /* PublishRelay.swift */; };
@@ -114,8 +112,6 @@
 		7289F72728BA1D02007501A2 /* PlaceAddMapUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapUsecase.swift; sourceTree = "<group>"; };
 		7289F72A28BA1D1F007501A2 /* PlaceAddMapBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapBuilder.swift; sourceTree = "<group>"; };
 		728EC25428B0C1A00032C4C2 /* SplashBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashBuilder.swift; sourceTree = "<group>"; };
-		728F760928B504FE00386F08 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
-		728F760B28B5059500386F08 /* NoticeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeViewController.xib; sourceTree = "<group>"; };
 		72D1154328B6226900F16705 /* WritePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostViewController.swift; sourceTree = "<group>"; };
 		72D1154528B6227700F16705 /* WritePostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WritePostViewController.xib; sourceTree = "<group>"; };
 		72E3DFC728B35F620066B5BE /* PublishRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishRelay.swift; sourceTree = "<group>"; };
@@ -299,7 +295,6 @@
 			children = (
 				7244B8F228B9FD1200AC9BAF /* main_map */,
 				72D1154228B6225900F16705 /* write_post */,
-				728F760828B504F000386F08 /* notice */,
 				720B2E8228AF8308008F5853 /* map */,
 				724FE74F28AF772C00BCAD05 /* splash */,
 			);
@@ -326,15 +321,6 @@
 				72E3DFCE28B3762D0066B5BE /* CompositionRoot.swift */,
 			);
 			path = entry;
-			sourceTree = "<group>";
-		};
-		728F760828B504F000386F08 /* notice */ = {
-			isa = PBXGroup;
-			children = (
-				728F760928B504FE00386F08 /* NoticeViewController.swift */,
-				728F760B28B5059500386F08 /* NoticeViewController.xib */,
-			);
-			path = notice;
 			sourceTree = "<group>";
 		};
 		72D1153D28B61C3E00F16705 /* permission */ = {
@@ -482,7 +468,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				728F760C28B5059500386F08 /* NoticeViewController.xib in Resources */,
 				7244B8E628B9F1C000AC9BAF /* PlaceAddMapViewController.xib in Resources */,
 				724FE72928AF75AD00BCAD05 /* LaunchScreen.storyboard in Resources */,
 				724FE72628AF75AD00BCAD05 /* Assets.xcassets in Resources */,
@@ -531,7 +516,6 @@
 				7289F72B28BA1D1F007501A2 /* PlaceAddMapBuilder.swift in Sources */,
 				724FE72128AF75AC00BCAD05 /* MapViewController.swift in Sources */,
 				720CBE4528B8C0A600FBABFF /* WriteBuilder.swift in Sources */,
-				728F760A28B504FE00386F08 /* NoticeViewController.swift in Sources */,
 				7244B8F128B9FD0C00AC9BAF /* MainMapViewController.swift in Sources */,
 				7289F72828BA1D02007501A2 /* PlaceAddMapUsecase.swift in Sources */,
 				720B2E8728AF8342008F5853 /* MapViewModel.swift in Sources */,
