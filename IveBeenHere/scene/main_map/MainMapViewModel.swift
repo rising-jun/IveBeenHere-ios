@@ -68,7 +68,6 @@ protocol MainMapViewModelBinding {
     func action() -> MainMapViewModelInput
     func state() -> MainMapViewModelOutput
 }
-
 enum LocationPermission {
     case available
     case unavailable

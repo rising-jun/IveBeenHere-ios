@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol WritePostViewPresentable: AnyObject {
+    func didPopChildView()
+}
+
 final class WritePostViewController: UIViewController {
     static let id = String(describing: WritePostViewController.self)
     private let searchBarDelegate = LocationSearchBarDelegate()
+    private let searchTableDataSource = SearchTableDataSource()
+    private let delegate = ImagePickerDelegate()
     private let disposeBag = DisposeBag()
     var viewModel: WriteViewModel? {
         didSet { binding() }
@@ -31,6 +37,12 @@ final class WritePostViewController: UIViewController {
         viewModel?.viewDidLoad.accept(value: ())
     }
     
+    @IBAction func writeButtonTapped(_ sender: Any) {
+        viewModel?.titleEdited.accept(value: titleField.text ?? "")
+        viewModel?.contentEdited.accept(value: contentText.text)
+        viewModel?.writeButtonTapped.accept(value: ())
+    }
+    
     @IBAction func AddLocationButtonTapped(_ sender: Any) {
         viewModel?.addLocationButtonTapped.accept(value: ())
     }
@@ -38,9 +50,10 @@ final class WritePostViewController: UIViewController {
 
 extension WritePostViewController {
     private func binding() {
-        searchBarDelegate.searchBarChangeObserver = viewModel?.searchBarDidEditing
+        guard let viewModel = self.viewModel else { return }
+        searchBarDelegate.searchBarChangeObserver = viewModel.searchBarDidEditing
         
-        viewModel?.presentAddLocation
+        viewModel.presentAddLocation
             .observe(on: DispatchQueue.main)
             .bind(onNext: { [weak self] _ in
                 guard let self = self else { return }
@@ -48,19 +61,110 @@ extension WritePostViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel?.locationRelay
+        viewModel.attributeView
+            .observe(on: DispatchQueue.main)
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.attributeView()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.locationRelay
             .observe(on: DispatchQueue.main)
             .bind(onNext: { [weak self] places in
                 guard let self = self else { return }
-                print("excute")
-                
                 self.locationSearchBar.scopeButtonTitles = places.map { $0.name }
             })
+            .disposed(by: disposeBag)
+        
+        viewModel.presentSelectPhoto
+            .observe(on: DispatchQueue.main)
+            .bind { [weak self] _ in
+                guard let self = self else { return }
+                self.presentPhotoPicker()
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.searchingLocations
+            .observe(on: DispatchQueue.main)
+            .bind { [weak self] places in
+                guard let self = self else { return }
+                if places.count > 0 {
+                    self.searchTableDataSource.updatePlaces(from: places)
+                    self.searchTableView.reloadData()
+                    self.searchTableView.alpha = 1
+                } else {
+                    self.searchTableView.alpha = 0
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.updateThumbnailImage
+            .observe(on: DispatchQueue.main)
+            .bind { [weak self] imageData in
+                guard let self = self else { return }
+                DispatchQueue(label: "serial").async {
+                    let image = UIImage(data: imageData)
+                    DispatchQueue.main.async {
+                        self.imageView.image = image
+                    }
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.updateSelectedPlace
+            .observe(on: DispatchQueue.main)
+            .bind { [weak self] placeName in
+                guard let self = self else { return }
+                self.locationSearchBar.text = placeName
+            }
             .disposed(by: disposeBag)
     }
     
     private func presentPlaceAddMap() {
         let viewController = PlaceAddMapBuilder().build()
+        viewController.presentableWriteView = self
         present(viewController, animated: true)
+    }
+    
+    private func attributeView() {
+        searchTableView.dataSource = searchTableDataSource
+        searchTableView.delegate = searchTableDataSource
+        searchTableDataSource.tappedRelay = viewModel?.searchTableCellDidTapped
+        searchTableView.alpha = 0
+        searchTableView.backgroundColor = .systemGray5
+        registerTapEvent()
+    }
+    
+    private func registerTapEvent() {
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(buttonTapped)))
+        imageView.isUserInteractionEnabled = true
+    }
+    
+    @objc func buttonTapped(sender: UITapGestureRecognizer) {
+        viewModel?.tappedAddImageButton.accept(value: ())
+    }
+    
+    private func presentPhotoPicker() {
+        let imageViewController = UIImagePickerController()
+        delegate.imageRelay = viewModel?.postImageData
+        imageViewController.delegate = delegate
+        let alert = UIAlertController(title: "사진업로드", message: "방식을 선택해주세요.", preferredStyle: .alert)
+        let takePhotoAction = UIAlertAction(title: "촬영하기", style: .default) { action in
+            imageViewController.sourceType = .camera
+            self.present(imageViewController, animated: true)
+        }
+        let photoAction = UIAlertAction(title: "가져오기", style: .default) { action in
+            imageViewController.sourceType = .photoLibrary
+            self.present(imageViewController, animated: true)
+        }
+        alert.addAction(takePhotoAction)
+        alert.addAction(photoAction)
+        present(alert, animated: false)
+    }
+}
+extension WritePostViewController: WritePostViewPresentable {
+    func didPopChildView() {
+        viewModel?.didPopChildView.accept(value: ())
     }
 }
