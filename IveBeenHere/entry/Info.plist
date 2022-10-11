@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>게시물의 사진을 사진앱에서 불러올 수 있습니다.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>게시물의 사진을 촬영할 수 있습니다.</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -13,7 +9,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>9d618f74a6d63d44fe745da0f480233f</string>
+				<string>f7ac66a6e2cda493737230543d1ac19e</string>
 			</array>
 		</dict>
 	</array>

@@ -15,12 +15,21 @@ struct SnapInfo: Codable {
     }
 }
 
+struct VisitSnap: Codable {
+    let visitDTOs: [VisitDTO]
+    
+    enum CodingKeys: String, CodingKey {
+        case visitDTOs = "VisitDTO"
+    }
+}
+
 struct VisitDTO: Codable {
     let place: PlaceDTO
-    let date: Date
+    let date: String
     let title: String?
     let content: String?
     let imageURL: String
+    let userId: String
 }
 
 struct PlaceDTO: Codable {

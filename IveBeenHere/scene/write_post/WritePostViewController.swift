@@ -31,6 +31,8 @@ final class WritePostViewController: UIViewController {
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var contentText: UITextView!
     
+    weak var presentableMainView: MainMapViewPresentable?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationSearchBar.delegate = searchBarDelegate
@@ -119,12 +121,49 @@ extension WritePostViewController {
                 self.locationSearchBar.text = placeName
             }
             .disposed(by: disposeBag)
+        
+        viewModel.uploadSuccess
+            .observe(on: DispatchQueue.main)
+            .bind { [weak self] visitDTO in
+                guard let self = self else { return }
+                self.uploadDismiss(dto: visitDTO)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.noticeMessage
+            .observe(on: DispatchQueue.main)
+            .bind { [weak self] lacking in
+                guard let self = self else { return }
+                self.noticeError(lacking: lacking)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func presentPlaceAddMap() {
         let viewController = PlaceAddMapBuilder().build()
         viewController.presentableWriteView = self
         present(viewController, animated: true)
+    }
+    
+    private func uploadDismiss(dto: VisitDTO) {
+        presentableMainView?.dismissCompleteUpload(dto: dto)
+        dismiss(animated: true)
+    }
+    
+    private func noticeError(lacking: LackingInfo) {
+        var message = ""
+        switch lacking {
+        case .upload:
+            message = "업로드에 실패하였습니다."
+        case .place:
+            message = "장소를 선택해주세요."
+        case .title:
+            message = "제목을 입력해주세요."
+        case .photo:
+            message = "사진을 선택해주세요."
+        }
+        let alertView = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
+        self.present(alertView, animated: true)
     }
     
     private func attributeView() {

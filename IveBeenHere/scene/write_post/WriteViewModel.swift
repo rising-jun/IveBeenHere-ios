@@ -36,6 +36,7 @@ final class WriteViewModel {
     var updateThumbnailImage = PublishRelay<Data>()
     var updateSelectedPlace = PublishRelay<String>()
     var noticeMessage = PublishRelay<LackingInfo>()
+    var uploadSuccess = PublishRelay<VisitDTO>()
     
     init() {
         viewDidLoad.bind { [weak self] _ in
@@ -105,39 +106,42 @@ final class WriteViewModel {
         
         writeButtonTapped.bind { [weak self] _ in
             guard let self = self else { return }
-            guard let imageData = self.thumbnailImageData else {
-                self.noticeMessage.accept(value: .photo)
-                return
-            }
-            
-            guard let place = self.place else {
-                self.noticeMessage.accept(value: .place)
-                return
-            }
-            
-            guard let title = self.title else {
-                self.noticeMessage.accept(value: .title)
-                return
-            }
-            
-            Task {
-                let url = try await String(describing: self.writeManagable?.requestUploadImage(imageData: imageData))
-                let dto = VisitDTO(place: place, date: Date(), title: title, content: self.content, imageURL: url)
-                print(dto)
-                guard let result = try await self.writeManagable?.requestWriteVisitDTO(from: dto) else { return }
-                switch result {
-                case .success(_):
-                    print("sucecess logic")
-                case .failure(let error):
-                    print(error)
-                }
-            }
+            self.uploadVisitDTO()
         }
         .disposed(by: disposeBag)
     }
 }
 extension WriteViewModel {
-    
+    private func uploadVisitDTO() {
+        guard let imageData = self.thumbnailImageData else {
+            self.noticeMessage.accept(value: .photo)
+            return
+        }
+        
+        guard let place = self.place else {
+            self.noticeMessage.accept(value: .place)
+            return
+        }
+        
+        guard let title = self.title else {
+            self.noticeMessage.accept(value: .title)
+            return
+        }
+        
+        guard let userId = UserDefaults.standard.string(forKey: KakaoLoginManager.Key.token) else { return }
+        
+        Task {
+            let url = try await String(describing: self.writeManagable?.requestUploadImage(imageData: imageData))
+            let dto = VisitDTO(place: place, date: "\(Date())", title: title, content: self.content, imageURL: url, userId: userId)
+            guard let result = try await self.writeManagable?.requestWriteVisitDTO(from: dto) else { return }
+            switch result {
+            case .success(_):
+                self.uploadSuccess.accept(value: dto)
+            case .failure(_):
+                self.noticeMessage.accept(value: .upload)
+            }
+        }
+    }
 }
 
 extension WriteViewModel: WriteViewModelOutput {
@@ -145,10 +149,12 @@ extension WriteViewModel: WriteViewModelOutput {
 }
 protocol WriteViewModelOutput {
     var locationRelay: PublishRelay<[PlaceDTO]> { get }
+    var noticeMessage: PublishRelay<LackingInfo> { get}
 }
 
 enum LackingInfo {
     case photo
     case place
     case title
+    case upload
 }

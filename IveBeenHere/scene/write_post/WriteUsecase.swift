@@ -21,8 +21,8 @@ extension WriteUsecase {
             switch result {
             case .success(let places):
                 self.viewModelResponse?.locationRelay.accept(value: places)
-            case .failure(let error):
-                print(error)
+            case .failure(_):
+                self.viewModelResponse?.noticeMessage.accept(value: .place)
             }
         }
     }

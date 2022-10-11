@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7206632D28F543E7009D94A9 /* PostAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206632C28F543E7009D94A9 /* PostAnnotationView.swift */; };
 		720B2E8728AF8342008F5853 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8628AF8342008F5853 /* MapViewModel.swift */; };
 		720B2E8B28AF8401008F5853 /* MapUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8A28AF8401008F5853 /* MapUsecase.swift */; };
 		720B2E8E28AF8480008F5853 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8D28AF8480008F5853 /* PermissionManager.swift */; };
@@ -75,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7206632C28F543E7009D94A9 /* PostAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAnnotationView.swift; sourceTree = "<group>"; };
 		720B2E8628AF8342008F5853 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		720B2E8A28AF8401008F5853 /* MapUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUsecase.swift; sourceTree = "<group>"; };
 		720B2E8D28AF8480008F5853 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
@@ -155,9 +157,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7206632E28F54453009D94A9 /* annotation */ = {
+			isa = PBXGroup;
+			children = (
+				7206632C28F543E7009D94A9 /* PostAnnotationView.swift */,
+			);
+			path = annotation;
+			sourceTree = "<group>";
+		};
 		720B2E8228AF8308008F5853 /* map */ = {
 			isa = PBXGroup;
 			children = (
+				7206632E28F54453009D94A9 /* annotation */,
 				7230741B28B4B77500A29CEA /* delegate */,
 				724FE72028AF75AC00BCAD05 /* MapViewController.swift */,
 				720B2E8628AF8342008F5853 /* MapViewModel.swift */,
@@ -520,6 +531,7 @@
 				7289F72828BA1D02007501A2 /* PlaceAddMapUsecase.swift in Sources */,
 				720B2E8728AF8342008F5853 /* MapViewModel.swift in Sources */,
 				72559C1228BA03B6006F3E8F /* MainMapBuilder.swift in Sources */,
+				7206632D28F543E7009D94A9 /* PostAnnotationView.swift in Sources */,
 				724FE71D28AF75AC00BCAD05 /* AppDelegate.swift in Sources */,
 				724FE71F28AF75AC00BCAD05 /* SceneDelegate.swift in Sources */,
 				72E3DFCF28B3762D0066B5BE /* CompositionRoot.swift in Sources */,
@@ -629,7 +641,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -683,7 +695,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -703,8 +715,10 @@
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IveBeenHere/entry/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "게시물의 사진을 촬영할 수 있습니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "지도에 사용자의 현재위치를 표시할 수 있습니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 가져옵니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "게시물의 사진을 사진앱에서 불러올 수 있습니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -732,8 +746,10 @@
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IveBeenHere/entry/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "게시물의 사진을 촬영할 수 있습니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "지도에 사용자의 현재위치를 표시할 수 있습니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 가져옵니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "게시물의 사진을 사진앱에서 불러올 수 있습니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
