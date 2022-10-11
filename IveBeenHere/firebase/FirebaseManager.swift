@@ -14,6 +14,7 @@ protocol FirebaseManagable {
     func writePlaceDTO(placeDTO: PlaceDTO, completion: @escaping(Result<FirebaseWriteResult, FireBaseError>) -> Void)
     func uploadImage(from data: Data) async throws -> URL?
     func writeVisitDTO(visitDTO: VisitDTO) async throws -> Result<Void, FireBaseError>
+    func readVisitDTO() async -> Result<[VisitDTO], FireBaseError>
 }
 
 final class FirebaseManager {
@@ -119,8 +120,28 @@ extension FirebaseManager: FirebaseManagable {
             continues.resume(returning: .success(()))
         }
     }
+    
+    func readVisitDTO() async -> Result<[VisitDTO], FireBaseError> {
+        return await withCheckedContinuation { continues in
+            let documentSnapshotCompletion: ((DocumentSnapshot?, Error?) -> ()) = { document, error in
+                guard let visitDTOJson = document?.data() else { return continues.resume(returning: .failure(.nilDataError)) }
+                
+                guard let visitDTOData = try? JSONSerialization.data(withJSONObject: visitDTOJson, options: .prettyPrinted) else {
+                    return continues.resume(returning: .failure(.jsonParsingError))
+                }
+                
+                guard let visitDTOs = try? JSONDecoder().decode(VisitSnap.self, from: visitDTOData).visitDTOs else {
+                    return continues.resume(returning: .failure(.jsonParsingError))
+                }
+                continues.resume(returning: .success(visitDTOs))
+            }
+            Firestore.firestore()
+                .collection("VisitData")
+                .document("VisitDTO")
+                .getDocument(completion: documentSnapshotCompletion)
+        }
+    }
 }
-
 enum FireBaseError: Error{
     case snapError
     case writeError
@@ -132,3 +153,4 @@ enum FirebaseWriteResult{
     case success
     case failed(error: FireBaseError)
 }
+

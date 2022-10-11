@@ -15,7 +15,6 @@ final class PlaceAddMapUsecase {
 }
 extension PlaceAddMapUsecase {
     func requestAdd(place: PlaceDTO) {
-        print("hello \(place)")
         firebaseManagable.writePlaceDTO(placeDTO: place, completion: { result in
             switch result {
             case .success(let result):

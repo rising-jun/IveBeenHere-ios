@@ -18,10 +18,12 @@ class MainMapBuilder: MainMapBuildingLogic {
         let viewModel = MainMapViewModel()
         let mainMapUsecase = MainMapUsecase()
         let loginManager = KakaoLoginManager()
+        let firebaseManager = FirebaseManager()
         
         viewModel.usecase = mainMapUsecase
         mainMapUsecase.kakaoLoginManagable = loginManager
         mainMapUsecase.viewModelResponsable = viewModel
+        mainMapUsecase.firebaseManager = firebaseManager
         loginManager.mapUsecaseLoginUpdatable = mainMapUsecase
         viewController.viewModel = viewModel
         return viewController

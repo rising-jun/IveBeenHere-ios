@@ -8,10 +8,10 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+final class MapViewController: UIViewController {
     static let id = String(describing: MapViewController.self)
     private let disposeBag = DisposeBag()
-    private let mapViewDelegate = MapViewDelegate()
+    private(set) var mapViewDelegate = MapViewDelegate()
     var viewModel: MapViewModelType? {
         didSet {
             binding()
@@ -54,6 +54,7 @@ extension MapViewController {
     }
     
     private func setMapView(by coordinate: Coordinate) {
+        mapView.register(PostAnnotationView.self, forAnnotationViewWithReuseIdentifier: PostAnnotationView.identifier)
         setCamera(by: coordinate)
     }
     

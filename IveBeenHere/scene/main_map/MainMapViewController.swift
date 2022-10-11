@@ -6,6 +6,11 @@
 //
 
 import UIKit
+import MapKit
+
+protocol MainMapViewPresentable: AnyObject {
+    func dismissCompleteUpload(dto: VisitDTO)
+}
 
 final class MainMapViewController: UIViewController {
     static let id = String(describing: MainMapViewController.self)
@@ -27,6 +32,9 @@ final class MainMapViewController: UIViewController {
         super.viewDidLoad()
         viewModel?.viewDidLoad.accept(value: ())
     }
+    
+    private var mapView: MKMapView?
+    private var mapDelegate: MapViewDelegate?
 }
 extension MainMapViewController {
     private func viewAttribute() {
@@ -34,6 +42,8 @@ extension MainMapViewController {
         addPostButton.layer.zPosition = 999
         view.bringSubviewToFront(addPostButton)
         addPostButton.addTarget(self, action: #selector(addPostButtonTapped), for: .touchUpInside)
+        self.mapView = mapViewController.mapView
+        self.mapDelegate = mapViewController.mapViewDelegate
     }
     
     private func binding() {
@@ -52,6 +62,25 @@ extension MainMapViewController {
             .bind(onNext: { [weak self] result in
                 guard let self = self else { return }
                 result ? self.presentWritePopup() : self.presentLoginPopup()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel?.state()
+            .updateVisits
+            .observe(on: DispatchQueue.main)
+            .bind(onNext: { [weak self] visits in
+                guard let self = self else { return }
+                for visitDTO in visits {
+                    self.addVisitAnnotation(visitDTO: visitDTO)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel?.state()
+            .firebaseError
+            .observe(on: DispatchQueue.main)
+            .bind(onNext: { error in
+                print("visits result Error \(error)")
             })
             .disposed(by: disposeBag)
     }
@@ -75,6 +104,18 @@ extension MainMapViewController {
     
     private func presentWritePopup() {
         let writePostViewController = WriteBuilder().build()
+        writePostViewController.presentableMainView = self
         self.present(writePostViewController, animated: false, completion: nil)
+    }
+    
+    private func addVisitAnnotation(visitDTO: VisitDTO) {
+        guard let mapView = self.mapView else { return }
+        let point = PostAnnotation(visitDTO: visitDTO)
+        mapView.addAnnotation(point)
+    }
+}
+extension MainMapViewController: MainMapViewPresentable {
+    func dismissCompleteUpload(dto: VisitDTO) {
+        addVisitAnnotation(visitDTO: dto)
     }
 }

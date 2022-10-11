@@ -18,11 +18,16 @@ final class MainMapViewModel {
     var setUserLocationCoordi = PublishRelay<Coordinate>()
     var viewAttirbute = PublishRelay<Void>()
     var didLogin = PublishRelay<Bool>()
-        
+    var firebaseError = PublishRelay<FireBaseError>()
+    var updateVisits = PublishRelay<[VisitDTO]>()
+    
     init() {
         viewDidLoad.bind { [weak self] _ in
             guard let self = self else { return }
             self.viewAttirbute.accept(value: ())
+            Task {
+                await self.usecase?.requestVisitDTO()
+            }
         }
         .disposed(by: disposeBag)
         
@@ -63,6 +68,8 @@ protocol MainMapViewModelOutput {
     var viewAttirbute: PublishRelay<Void> { get }
     var setUserLocationCoordi: PublishRelay<Coordinate> { get }
     var didLogin: PublishRelay<Bool> { get }
+    var firebaseError: PublishRelay<FireBaseError> { get }
+    var updateVisits: PublishRelay<[VisitDTO]> { get }
 }
 protocol MainMapViewModelBinding {
     func action() -> MainMapViewModelInput

@@ -13,8 +13,14 @@ final class MapViewDelegate: NSObject {
 }
 extension MapViewDelegate: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard annotation is MKPointAnnotation else { return nil }
+        if let postAnnotation = annotation as? PostAnnotation {
+            guard let postAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: PostAnnotationView.identifier) as? PostAnnotationView else { return nil }
+            postAnnotationView.configuration(with: postAnnotation.visitDTO)
+            postAnnotationView.annotation = postAnnotation
+            return postAnnotationView
+        }
         
+        guard annotation is MKPointAnnotation else { return nil }
         let identifier = "Annotation"
         guard let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKAnnotationView.id) else {
             let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
