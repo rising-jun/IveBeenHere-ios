@@ -25,6 +25,7 @@ final class WritePostViewController: UIViewController {
         return WritePostViewController(nibName: id, bundle: nil)
     }
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var locationSearchBar: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
@@ -40,6 +41,7 @@ final class WritePostViewController: UIViewController {
     }
     
     @IBAction func writeButtonTapped(_ sender: Any) {
+        indicator.start()
         viewModel?.titleEdited.accept(value: titleField.text ?? "")
         viewModel?.contentEdited.accept(value: contentText.text)
         viewModel?.writeButtonTapped.accept(value: ())
@@ -126,6 +128,7 @@ extension WritePostViewController {
             .observe(on: DispatchQueue.main)
             .bind { [weak self] visitDTO in
                 guard let self = self else { return }
+                self.indicator.stop()
                 self.uploadDismiss(dto: visitDTO)
             }
             .disposed(by: disposeBag)
@@ -134,6 +137,7 @@ extension WritePostViewController {
             .observe(on: DispatchQueue.main)
             .bind { [weak self] lacking in
                 guard let self = self else { return }
+                self.indicator.stop()
                 self.noticeError(lacking: lacking)
             }
             .disposed(by: disposeBag)
@@ -172,6 +176,8 @@ extension WritePostViewController {
         searchTableDataSource.tappedRelay = viewModel?.searchTableCellDidTapped
         searchTableView.alpha = 0
         searchTableView.backgroundColor = .systemGray5
+        
+        indicator.alpha = 0
         registerTapEvent()
     }
     

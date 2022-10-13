@@ -15,6 +15,7 @@ protocol MainMapViewPresentable: AnyObject {
 final class MainMapViewController: UIViewController {
     static let id = String(describing: MainMapViewController.self)
     
+    
     @IBOutlet weak var addPostButton: UIButton!
     private let disposeBag = DisposeBag()
     private let mapViewController = MapBuilder().build()
@@ -43,11 +44,11 @@ extension MainMapViewController {
         view.bringSubviewToFront(addPostButton)
         addPostButton.addTarget(self, action: #selector(addPostButtonTapped), for: .touchUpInside)
         self.mapView = mapViewController.mapView
-        self.mapDelegate = mapViewController.mapViewDelegate
     }
     
     private func binding() {
-        viewModel?.state()
+        guard let viewModel = viewModel else { return }
+        viewModel.state()
             .viewAttirbute
             .observe(on: DispatchQueue.main)
             .bind(onNext: { [weak self] _ in
@@ -56,7 +57,7 @@ extension MainMapViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel?.state()
+        viewModel.state()
             .didLogin
             .observe(on: DispatchQueue.main)
             .bind(onNext: { [weak self] result in
@@ -65,23 +66,32 @@ extension MainMapViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel?.state()
+        viewModel.state()
             .updateVisits
             .observe(on: DispatchQueue.main)
             .bind(onNext: { [weak self] visits in
                 guard let self = self else { return }
-                for visitDTO in visits {
-                    self.addVisitAnnotation(visitDTO: visitDTO)
+                for (index, visitDTO) in visits.enumerated() {
+                    self.addVisitAnnotation(visitDTO: visitDTO, tapRelay: viewModel.action().postDidTapRelays[index])
                 }
             })
             .disposed(by: disposeBag)
         
-        viewModel?.state()
+        viewModel.state()
             .firebaseError
             .observe(on: DispatchQueue.main)
             .bind(onNext: { error in
                 print("visits result Error \(error)")
             })
+            .disposed(by: disposeBag)
+        
+        viewModel.state()
+            .presentPost
+            .observe(on: DispatchQueue.main)
+            .bind { [weak self] visitDTO in
+                guard let self = self else { return }
+                self.presentPostView(with: visitDTO)
+            }
             .disposed(by: disposeBag)
     }
     
@@ -89,6 +99,12 @@ extension MainMapViewController {
         viewModel?.action()
             .addPostButtonTapped
             .accept(value: ())
+    }
+    
+    private func presentPostView(with visitDTO: VisitDTO) {
+        let postViewController = PostBuilder().build()
+        postViewController.setDetailVisit(from: visitDTO)
+        present(postViewController, animated: true)
     }
     
     private func presentLoginPopup() {
@@ -105,17 +121,19 @@ extension MainMapViewController {
     private func presentWritePopup() {
         let writePostViewController = WriteBuilder().build()
         writePostViewController.presentableMainView = self
-        self.present(writePostViewController, animated: false, completion: nil)
+        self.present(writePostViewController, animated: true, completion: nil)
     }
     
-    private func addVisitAnnotation(visitDTO: VisitDTO) {
+    private func addVisitAnnotation(visitDTO: VisitDTO, tapRelay: PublishRelay<Void>) {
         guard let mapView = self.mapView else { return }
         let point = PostAnnotation(visitDTO: visitDTO)
+        point.didTapRelay = tapRelay
         mapView.addAnnotation(point)
     }
 }
 extension MainMapViewController: MainMapViewPresentable {
     func dismissCompleteUpload(dto: VisitDTO) {
-        addVisitAnnotation(visitDTO: dto)
+        guard let viewModel = viewModel else { return }
+        viewModel.uploadedPost.accept(value: dto)
     }
 }

@@ -16,6 +16,7 @@ extension MapViewDelegate: MKMapViewDelegate {
         if let postAnnotation = annotation as? PostAnnotation {
             guard let postAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: PostAnnotationView.identifier) as? PostAnnotationView else { return nil }
             postAnnotationView.configuration(with: postAnnotation.visitDTO)
+            postAnnotationView.addAction(with: postAnnotation.didTapRelay)
             postAnnotationView.annotation = postAnnotation
             return postAnnotationView
         }

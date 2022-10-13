@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,6 +14,7 @@
             <connections>
                 <outlet property="contentText" destination="kTQ-wa-b3r" id="Uex-6z-TjH"/>
                 <outlet property="imageView" destination="r2v-a2-5Rm" id="mLb-4H-jOo"/>
+                <outlet property="indicator" destination="J6d-Bm-khR" id="jbn-rV-POO"/>
                 <outlet property="locationSearchBar" destination="xny-ko-lER" id="EbQ-uq-qK8"/>
                 <outlet property="searchTableView" destination="vJf-HQ-gvF" id="MMN-Aa-mKF"/>
                 <outlet property="titleField" destination="qjs-hT-YdV" id="IF2-Rm-Xcu"/>
@@ -89,6 +91,13 @@
                                 <action selector="writeButtonTapped:" destination="-1" eventType="touchUpInside" id="Ym4-NB-dNG"/>
                             </connections>
                         </button>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="J6d-Bm-khR">
+                            <rect key="frame" x="167" y="408" width="80" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="IYc-mg-Mio"/>
+                                <constraint firstAttribute="width" constant="80" id="VWh-ic-OvN"/>
+                            </constraints>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -99,6 +108,7 @@
                         <constraint firstItem="5Jb-b9-ZWA" firstAttribute="trailing" secondItem="kTQ-wa-b3r" secondAttribute="trailing" constant="30" id="9q3-Ct-NAP"/>
                         <constraint firstItem="Eid-W5-IBx" firstAttribute="leading" secondItem="xny-ko-lER" secondAttribute="trailing" constant="20" id="APt-dU-tEN"/>
                         <constraint firstItem="qjs-hT-YdV" firstAttribute="trailing" secondItem="wU0-94-8IQ" secondAttribute="trailing" id="AW0-Tm-Sjk"/>
+                        <constraint firstItem="J6d-Bm-khR" firstAttribute="centerY" secondItem="GGR-5b-Npi" secondAttribute="centerY" id="Chi-1m-1Vd"/>
                         <constraint firstItem="xny-ko-lER" firstAttribute="centerY" secondItem="Eid-W5-IBx" secondAttribute="centerY" id="Dfv-4m-gcZ"/>
                         <constraint firstItem="Eid-W5-IBx" firstAttribute="trailing" secondItem="wU0-94-8IQ" secondAttribute="trailing" id="HSC-X3-Jzb"/>
                         <constraint firstItem="5Jb-b9-ZWA" firstAttribute="trailing" secondItem="Ztt-eI-MdU" secondAttribute="trailing" constant="20" id="MXz-Cn-KX6"/>
@@ -112,6 +122,7 @@
                         <constraint firstItem="vJf-HQ-gvF" firstAttribute="top" secondItem="xny-ko-lER" secondAttribute="bottom" id="gsn-dk-8m4"/>
                         <constraint firstItem="qjs-hT-YdV" firstAttribute="top" secondItem="xny-ko-lER" secondAttribute="bottom" constant="40" id="h9M-Cx-8oE"/>
                         <constraint firstItem="r2v-a2-5Rm" firstAttribute="centerX" secondItem="GGR-5b-Npi" secondAttribute="centerX" id="hzN-T2-sFS"/>
+                        <constraint firstItem="J6d-Bm-khR" firstAttribute="centerX" secondItem="GGR-5b-Npi" secondAttribute="centerX" id="izr-up-V88"/>
                         <constraint firstItem="kTQ-wa-b3r" firstAttribute="top" secondItem="wU0-94-8IQ" secondAttribute="bottom" constant="40" id="jFV-Ek-rsE"/>
                         <constraint firstItem="qjs-hT-YdV" firstAttribute="leading" secondItem="wU0-94-8IQ" secondAttribute="leading" id="k9p-ql-4xs"/>
                         <constraint firstItem="qjs-hT-YdV" firstAttribute="leading" secondItem="5Jb-b9-ZWA" secondAttribute="leading" constant="30" id="lhK-c0-y1O"/>
