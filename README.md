@@ -41,4 +41,10 @@
 ----
 
 ## 4. 위치 추가 기능.
+### 객체관계
+<img width="1003" alt="스크린샷 2022-10-13 오후 5 47 25" src="https://user-images.githubusercontent.com/62687919/195548967-d82efe89-bf5b-4047-bfbd-1727e5869329.png">
+
+### 실행화면
+![222](https://user-images.githubusercontent.com/62687919/195549241-6ff71bd7-e223-4fbc-a16f-694cefe68efe.gif)
+
 
