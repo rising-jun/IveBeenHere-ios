@@ -14,7 +14,7 @@
 > 점선은 추상타입, 실선은 의존관계를 표현하였습니다.
 > 
 > 실행화면
-> https://user-images.githubusercontent.com/62687919/195539377-0d4bf9a4-fd31-41a8-955b-4fd5507bfb49.mov
+> ![1](https://user-images.githubusercontent.com/62687919/195540134-d7953d9e-92a6-4643-8a17-0c46d23f2541.gif)
 >
 ### 2. 메인 화면.
 
