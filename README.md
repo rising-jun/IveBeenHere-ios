@@ -1,12 +1,25 @@
 # 지금 여기있어!
+1. 사용자가 앱 실행 시 위치권한을 요청한다.
+2. 사용자가 게시물 작성을 시도하면, 로그인 요청을 한다.
+3. 사용자가 현재 위치를 추가하고, 포스트를 작성한다.
+4. 네트워크 요청 결과가 실패하거나, 사용자가 게시물 필수 작성 양식을 기재하지 않을 시 alert를 사용하여 사용자에게 전달한다.
+
 ## 사용한 ThirdPartyLibrary
  - Firebase
  - KakaoLogin
  
 ## 설계
  - MVVM구조, Builder패턴
+<img width="641" alt="스크린샷 2022-10-13 오후 5 57 24" src="https://user-images.githubusercontent.com/62687919/195551597-70e14d61-270d-4bf4-bf65-6b9b7dc3a447.png">
+
+----
 
 ## Index
+화면 별 Flow
+<img width="425" alt="스크린샷 2022-10-13 오후 5 58 10" src="https://user-images.githubusercontent.com/62687919/195551792-14b2bb1f-d783-4abb-bd6d-d7a2bfc1046e.png">
+
+----
+
 ## 1. 포스트 화면.
 ### 객체관계  
 > <img width="944" alt="스크린샷 2022-10-13 오후 5 05 41" src="https://user-images.githubusercontent.com/62687919/195538602-c2c3f9ed-6b99-46d8-b933-209c8eda0fd1.png">
