@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7206632D28F543E7009D94A9 /* PostAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206632C28F543E7009D94A9 /* PostAnnotationView.swift */; };
+		7206637728F56145009D94A9 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206637628F56145009D94A9 /* PostViewController.swift */; };
+		7206637B28F56276009D94A9 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7206637A28F56276009D94A9 /* PostViewController.xib */; };
 		720B2E8728AF8342008F5853 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8628AF8342008F5853 /* MapViewModel.swift */; };
 		720B2E8B28AF8401008F5853 /* MapUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8A28AF8401008F5853 /* MapUsecase.swift */; };
 		720B2E8E28AF8480008F5853 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B2E8D28AF8480008F5853 /* PermissionManager.swift */; };
@@ -18,6 +20,9 @@
 		720DF86F28B5F54A002BAFB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 720DF86E28B5F54A002BAFB9 /* GoogleService-Info.plist */; };
 		7230741F28B4B87F00A29CEA /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230741E28B4B87F00A29CEA /* MapViewDelegate.swift */; };
 		7238EEF228C09E3B0040CD18 /* SearchTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7238EEF128C09E3B0040CD18 /* SearchTableDataSource.swift */; };
+		723B7BE828F5678800A71B34 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723B7BE728F5678800A71B34 /* PostViewModel.swift */; };
+		723B7BEA28F567E400A71B34 /* PostBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723B7BE928F567E400A71B34 /* PostBuilder.swift */; };
+		723B7BEC28F56B7200A71B34 /* PostUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723B7BEB28F56B7200A71B34 /* PostUsecase.swift */; };
 		7244B8E128B9EF9500AC9BAF /* PlaceAddMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244B8E028B9EF9500AC9BAF /* PlaceAddMapViewController.swift */; };
 		7244B8E628B9F1C000AC9BAF /* PlaceAddMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7244B8E528B9F1BF00AC9BAF /* PlaceAddMapViewController.xib */; };
 		7244B8F128B9FD0C00AC9BAF /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244B8F028B9FD0C00AC9BAF /* MainMapViewController.swift */; };
@@ -77,6 +82,8 @@
 
 /* Begin PBXFileReference section */
 		7206632C28F543E7009D94A9 /* PostAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAnnotationView.swift; sourceTree = "<group>"; };
+		7206637628F56145009D94A9 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		7206637A28F56276009D94A9 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 		720B2E8628AF8342008F5853 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		720B2E8A28AF8401008F5853 /* MapUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUsecase.swift; sourceTree = "<group>"; };
 		720B2E8D28AF8480008F5853 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
@@ -87,6 +94,9 @@
 		720DF86E28B5F54A002BAFB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7230741E28B4B87F00A29CEA /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		7238EEF128C09E3B0040CD18 /* SearchTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableDataSource.swift; sourceTree = "<group>"; };
+		723B7BE728F5678800A71B34 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		723B7BE928F567E400A71B34 /* PostBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBuilder.swift; sourceTree = "<group>"; };
+		723B7BEB28F56B7200A71B34 /* PostUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUsecase.swift; sourceTree = "<group>"; };
 		7244B8E028B9EF9500AC9BAF /* PlaceAddMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapViewController.swift; sourceTree = "<group>"; };
 		7244B8E528B9F1BF00AC9BAF /* PlaceAddMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceAddMapViewController.xib; sourceTree = "<group>"; };
 		7244B8F028B9FD0C00AC9BAF /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +173,18 @@
 				7206632C28F543E7009D94A9 /* PostAnnotationView.swift */,
 			);
 			path = annotation;
+			sourceTree = "<group>";
+		};
+		7206637528F56130009D94A9 /* post */ = {
+			isa = PBXGroup;
+			children = (
+				7206637628F56145009D94A9 /* PostViewController.swift */,
+				7206637A28F56276009D94A9 /* PostViewController.xib */,
+				723B7BE728F5678800A71B34 /* PostViewModel.swift */,
+				723B7BE928F567E400A71B34 /* PostBuilder.swift */,
+				723B7BEB28F56B7200A71B34 /* PostUsecase.swift */,
+			);
+			path = post;
 			sourceTree = "<group>";
 		};
 		720B2E8228AF8308008F5853 /* map */ = {
@@ -304,6 +326,7 @@
 		724FE74E28AF772500BCAD05 /* scene */ = {
 			isa = PBXGroup;
 			children = (
+				7206637528F56130009D94A9 /* post */,
 				7244B8F228B9FD1200AC9BAF /* main_map */,
 				72D1154228B6225900F16705 /* write_post */,
 				720B2E8228AF8308008F5853 /* map */,
@@ -481,6 +504,7 @@
 			files = (
 				7244B8E628B9F1C000AC9BAF /* PlaceAddMapViewController.xib in Resources */,
 				724FE72928AF75AD00BCAD05 /* LaunchScreen.storyboard in Resources */,
+				7206637B28F56276009D94A9 /* PostViewController.xib in Resources */,
 				724FE72628AF75AD00BCAD05 /* Assets.xcassets in Resources */,
 				72D1154628B6227700F16705 /* WritePostViewController.xib in Resources */,
 				72E3DFCD28B373F40066B5BE /* SplashViewController.xib in Resources */,
@@ -524,19 +548,23 @@
 				72E3DFCA28B370AE0066B5BE /* MapBuilder.swift in Sources */,
 				720CBE4128B8B89700FBABFF /* WriteUsecase.swift in Sources */,
 				7245191828B61B0B00FA48A2 /* PlaceDTO.swift in Sources */,
+				723B7BEA28F567E400A71B34 /* PostBuilder.swift in Sources */,
 				7289F72B28BA1D1F007501A2 /* PlaceAddMapBuilder.swift in Sources */,
 				724FE72128AF75AC00BCAD05 /* MapViewController.swift in Sources */,
 				720CBE4528B8C0A600FBABFF /* WriteBuilder.swift in Sources */,
 				7244B8F128B9FD0C00AC9BAF /* MainMapViewController.swift in Sources */,
 				7289F72828BA1D02007501A2 /* PlaceAddMapUsecase.swift in Sources */,
+				723B7BE828F5678800A71B34 /* PostViewModel.swift in Sources */,
 				720B2E8728AF8342008F5853 /* MapViewModel.swift in Sources */,
 				72559C1228BA03B6006F3E8F /* MainMapBuilder.swift in Sources */,
 				7206632D28F543E7009D94A9 /* PostAnnotationView.swift in Sources */,
 				724FE71D28AF75AC00BCAD05 /* AppDelegate.swift in Sources */,
 				724FE71F28AF75AC00BCAD05 /* SceneDelegate.swift in Sources */,
 				72E3DFCF28B3762D0066B5BE /* CompositionRoot.swift in Sources */,
+				7206637728F56145009D94A9 /* PostViewController.swift in Sources */,
 				720B2E8E28AF8480008F5853 /* PermissionManager.swift in Sources */,
 				7245191528B5FD8A00FA48A2 /* FirebaseManager.swift in Sources */,
+				723B7BEC28F56B7200A71B34 /* PostUsecase.swift in Sources */,
 				72FD951228EEB53F00D3F31B /* ImagePickerDelegate.swift in Sources */,
 				7244B8E128B9EF9500AC9BAF /* PlaceAddMapViewController.swift in Sources */,
 				7289F72628BA1CF0007501A2 /* PlaceAddMapViewModel.swift in Sources */,

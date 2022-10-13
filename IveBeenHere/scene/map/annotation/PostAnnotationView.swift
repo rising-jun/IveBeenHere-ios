@@ -10,6 +10,7 @@ import UIKit
 
 final class PostAnnotation: NSObject, MKAnnotation {
     let visitDTO: VisitDTO
+    var didTapRelay: PublishRelay<Void>?
     let coordinate: CLLocationCoordinate2D
     init(visitDTO: VisitDTO) {
         coordinate = CLLocationCoordinate2D(latitude: visitDTO.place.latitude, longitude: visitDTO.place.longitude)
@@ -19,6 +20,7 @@ final class PostAnnotation: NSObject, MKAnnotation {
 
 final class PostAnnotationView: MKAnnotationView {
     static let identifier = "PostAnnotationView"
+    private var didTapRelay: PublishRelay<Void>?
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -51,7 +53,7 @@ final class PostAnnotationView: MKAnnotationView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func setupUI() {
         backgroundColor = .black
         addSubview(titleLabel)
@@ -68,10 +70,20 @@ final class PostAnnotationView: MKAnnotationView {
                                      placeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
                                      placeLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
                                      placeLabel.widthAnchor.constraint(equalToConstant: 70)])
+        
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTap)))
+    }
+    
+    @objc func didTap(sender: UITapGestureRecognizer) {
+        didTapRelay?.accept(value: ())
     }
     
     func configuration(with visit: VisitDTO) {
         titleLabel.text = visit.title
         placeLabel.text = visit.place.name
+    }
+    
+    func addAction(with tapRelay: PublishRelay<Void>?) {
+        self.didTapRelay = tapRelay
     }
 }

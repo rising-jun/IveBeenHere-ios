@@ -131,7 +131,8 @@ extension WriteViewModel {
         guard let userId = UserDefaults.standard.string(forKey: KakaoLoginManager.Key.token) else { return }
         
         Task {
-            let url = try await String(describing: self.writeManagable?.requestUploadImage(imageData: imageData))
+            guard let imageURL = try await self.writeManagable?.requestUploadImage(imageData: imageData) else { return }
+            let url = String(describing: imageURL)
             let dto = VisitDTO(place: place, date: "\(Date())", title: title, content: self.content, imageURL: url, userId: userId)
             guard let result = try await self.writeManagable?.requestWriteVisitDTO(from: dto) else { return }
             switch result {
