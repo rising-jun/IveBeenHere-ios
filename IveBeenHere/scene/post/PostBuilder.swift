@@ -17,8 +17,10 @@ class PostBuilder: PostBuildingLogic {
         let viewController = PostViewController.instance()
         let viewModel = PostViewModel()
         let usecase = PostUsecase()
+        let imageManager = ImageManager()
         viewController.viewModel = viewModel
         viewModel.usecase = usecase
+        usecase.imageManager = imageManager
         return viewController
     }
 }

@@ -8,7 +8,8 @@
 import Foundation
 
 final class WriteViewModel {
-    var writeManagable: WriteUsecase?
+    var writeManagable: WriteManager?
+    
     var viewDidLoad = PublishRelay<Void>()
     var tappedAddImageButton = PublishRelay<Void>()
     var addLocationButtonTapped = PublishRelay<Void>()
@@ -144,13 +145,43 @@ extension WriteViewModel {
         }
     }
 }
-
-extension WriteViewModel: WriteViewModelOutput {
+extension WriteViewModel: WriteViewModelType {
+    func action() -> WriteViewModelInput {
+        self
+    }
     
+    func state() -> WriteViewModelOutput {
+        self
+    }
+}
+
+typealias WriteViewModelType = WriteViewModelInput & WriteViewModelOutput & WriteViewModelBinding
+protocol WriteViewModelInput {
+    var viewDidLoad: PublishRelay<Void> { get }
+    var tappedAddImageButton: PublishRelay<Void> { get }
+    var addLocationButtonTapped: PublishRelay<Void> { get }
+    var searchBarDidEditing: PublishRelay<String> { get}
+    var didPopChildView: PublishRelay<Void> { get }
+    var searchTableCellDidTapped: PublishRelay<String> { get }
+    var postImageData: PublishRelay<Data> { get }
+    var writeButtonTapped: PublishRelay<Void> { get }
+    var titleEdited: PublishRelay<String> { get }
+    var contentEdited: PublishRelay<String> { get }
 }
 protocol WriteViewModelOutput {
+    var attributeView: PublishRelay<Void> { get }
     var locationRelay: PublishRelay<[PlaceDTO]> { get }
-    var noticeMessage: PublishRelay<LackingInfo> { get}
+    var searchingLocations: PublishRelay<[PlaceDTO]> { get }
+    var presentAddLocation: PublishRelay<Void> { get }
+    var presentSelectPhoto: PublishRelay<Void> { get }
+    var updateThumbnailImage: PublishRelay<Data> { get }
+    var updateSelectedPlace: PublishRelay<String> { get }
+    var noticeMessage: PublishRelay<LackingInfo> { get }
+    var uploadSuccess: PublishRelay<VisitDTO> { get }
+}
+protocol WriteViewModelBinding {
+    func action() -> WriteViewModelInput
+    func state() -> WriteViewModelOutput
 }
 
 enum LackingInfo {

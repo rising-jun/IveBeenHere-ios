@@ -17,7 +17,7 @@ final class WritePostViewController: UIViewController {
     private let searchTableDataSource = SearchTableDataSource()
     private let delegate = ImagePickerDelegate()
     private let disposeBag = DisposeBag()
-    var viewModel: WriteViewModel? {
+    var viewModel: WriteViewModelType? {
         didSet { binding() }
     }
     
@@ -37,27 +37,42 @@ final class WritePostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationSearchBar.delegate = searchBarDelegate
-        viewModel?.viewDidLoad.accept(value: ())
+        viewModel?.action()
+            .viewDidLoad
+            .accept(value: ())
     }
     
     @IBAction func writeButtonTapped(_ sender: Any) {
         indicator.start()
-        viewModel?.titleEdited.accept(value: titleField.text ?? "")
-        viewModel?.contentEdited.accept(value: contentText.text)
-        viewModel?.writeButtonTapped.accept(value: ())
+        guard let viewModel = viewModel else { return }
+
+        viewModel.action()
+            .titleEdited
+            .accept(value: titleField.text ?? "")
+        
+        viewModel.action()
+            .contentEdited
+            .accept(value: contentText.text)
+        
+        viewModel.action()
+            .writeButtonTapped
+            .accept(value: ())
     }
     
     @IBAction func AddLocationButtonTapped(_ sender: Any) {
-        viewModel?.addLocationButtonTapped.accept(value: ())
+        viewModel?.action()
+            .addLocationButtonTapped
+            .accept(value: ())
     }
 }
 
 extension WritePostViewController {
     private func binding() {
         guard let viewModel = self.viewModel else { return }
-        searchBarDelegate.searchBarChangeObserver = viewModel.searchBarDidEditing
+        searchBarDelegate.searchBarChangeObserver = viewModel.action().searchBarDidEditing
         
-        viewModel.presentAddLocation
+        viewModel.state()
+            .presentAddLocation
             .observe(on: DispatchQueue.main)
             .bind(onNext: { [weak self] _ in
                 guard let self = self else { return }
@@ -65,7 +80,8 @@ extension WritePostViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel.attributeView
+        viewModel.state()
+            .attributeView
             .observe(on: DispatchQueue.main)
             .bind(onNext: { [weak self] _ in
                 guard let self = self else { return }
@@ -73,7 +89,8 @@ extension WritePostViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel.locationRelay
+        viewModel.state()
+            .locationRelay
             .observe(on: DispatchQueue.main)
             .bind(onNext: { [weak self] places in
                 guard let self = self else { return }
@@ -81,7 +98,8 @@ extension WritePostViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel.presentSelectPhoto
+        viewModel.state()
+            .presentSelectPhoto
             .observe(on: DispatchQueue.main)
             .bind { [weak self] _ in
                 guard let self = self else { return }
@@ -89,7 +107,8 @@ extension WritePostViewController {
             }
             .disposed(by: disposeBag)
         
-        viewModel.searchingLocations
+        viewModel.state()
+            .searchingLocations
             .observe(on: DispatchQueue.main)
             .bind { [weak self] places in
                 guard let self = self else { return }
@@ -103,7 +122,8 @@ extension WritePostViewController {
             }
             .disposed(by: disposeBag)
         
-        viewModel.updateThumbnailImage
+        viewModel.state()
+            .updateThumbnailImage
             .observe(on: DispatchQueue.main)
             .bind { [weak self] imageData in
                 guard let self = self else { return }
@@ -116,7 +136,8 @@ extension WritePostViewController {
             }
             .disposed(by: disposeBag)
         
-        viewModel.updateSelectedPlace
+        viewModel.state()
+            .updateSelectedPlace
             .observe(on: DispatchQueue.main)
             .bind { [weak self] placeName in
                 guard let self = self else { return }
@@ -124,7 +145,8 @@ extension WritePostViewController {
             }
             .disposed(by: disposeBag)
         
-        viewModel.uploadSuccess
+        viewModel.state()
+            .uploadSuccess
             .observe(on: DispatchQueue.main)
             .bind { [weak self] visitDTO in
                 guard let self = self else { return }
@@ -133,7 +155,8 @@ extension WritePostViewController {
             }
             .disposed(by: disposeBag)
         
-        viewModel.noticeMessage
+        viewModel.state()
+            .noticeMessage
             .observe(on: DispatchQueue.main)
             .bind { [weak self] lacking in
                 guard let self = self else { return }
@@ -187,7 +210,9 @@ extension WritePostViewController {
     }
     
     @objc func buttonTapped(sender: UITapGestureRecognizer) {
-        viewModel?.tappedAddImageButton.accept(value: ())
+        viewModel?.action()
+            .tappedAddImageButton
+            .accept(value: ())
     }
     
     private func presentPhotoPicker() {
@@ -210,6 +235,8 @@ extension WritePostViewController {
 }
 extension WritePostViewController: WritePostViewPresentable {
     func didPopChildView() {
-        viewModel?.didPopChildView.accept(value: ())
+        viewModel?.action()
+            .didPopChildView
+            .accept(value: ())
     }
 }

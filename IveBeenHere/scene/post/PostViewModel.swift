@@ -8,7 +8,7 @@
 import Foundation
 
 final class PostViewModel {
-    var usecase: PostUsecase?
+    var usecase: PostManagable?
     
     var viewDidLoad = PublishRelay<Void>()
     var receiveVisitDetail = PublishRelay<VisitDTO>()
@@ -35,4 +35,28 @@ final class PostViewModel {
         }
         .disposed(by: disposeBag)
     }
+}
+extension PostViewModel: PostViewModelType {
+    func action() -> PostViewModelInput {
+        return self
+    }
+    
+    func state() -> PostViewModelOutput {
+        return self
+    }
+}
+
+typealias PostViewModelType = PostViewModelInput & PostViewModelOutput & PostViewModelBinding
+
+protocol PostViewModelInput {
+    var viewDidLoad: PublishRelay<Void> { get }
+    var receiveVisitDetail: PublishRelay<VisitDTO> { get }
+}
+protocol PostViewModelOutput {
+    var viewAttirbute: PublishRelay<Void> { get }
+    var contributeView: PublishRelay<VisitEntity> { get }
+}
+protocol PostViewModelBinding {
+    func action() -> PostViewModelInput
+    func state() -> PostViewModelOutput
 }

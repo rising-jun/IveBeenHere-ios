@@ -8,11 +8,13 @@
 import Foundation
 
 final class PostUsecase {
-    var imageManager = ImageManager()
+    var imageManager: ImageManagable?
+}
+extension PostUsecase: PostManagable {
     func convertEntity(from visitDTO: VisitDTO) async -> VisitEntity {
         let entity = visitDTO.convertVisitEntity()
         if let imageURL = URL(string: visitDTO.imageURL) {
-            let data = await imageManager.fetchImage(from: imageURL)
+            let data = await imageManager?.fetchImage(from: imageURL)
             entity.setImageData(from: data)
             return entity
         }
@@ -20,12 +22,6 @@ final class PostUsecase {
     }
 }
 
-final class ImageManager {
-    func fetchImage(from url: URL) async -> Data? {
-        return await withUnsafeContinuation { continuation in
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                continuation.resume(returning: data)
-            }.resume()
-        }
-    }
+protocol PostManagable {
+    func convertEntity(from visitDTO: VisitDTO) async -> VisitEntity
 }
