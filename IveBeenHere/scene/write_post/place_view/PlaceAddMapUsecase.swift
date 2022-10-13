@@ -13,7 +13,7 @@ final class PlaceAddMapUsecase {
         firebaseManagable = FirebaseManager.shared
     }
 }
-extension PlaceAddMapUsecase {
+extension PlaceAddMapUsecase: PlaceAddMapManagable {
     func requestAdd(place: PlaceDTO) {
         firebaseManagable.writePlaceDTO(placeDTO: place, completion: { result in
             switch result {
@@ -24,4 +24,8 @@ extension PlaceAddMapUsecase {
             }
         })
     }
+}
+
+protocol PlaceAddMapManagable {
+    func requestAdd(place: PlaceDTO)
 }

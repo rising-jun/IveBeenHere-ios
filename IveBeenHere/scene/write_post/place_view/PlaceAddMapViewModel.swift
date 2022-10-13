@@ -8,7 +8,7 @@
 import Foundation
 
 final class PlaceAddMapViewModel: PlaceAddMapViewModelType {
-    var placeAddMapManagable: PlaceAddMapUsecase?
+    var placeAddMapManagable: PlaceAddMapManagable?
     
     var viewDidLoad = PublishRelay<Void>()
     var draggedPoint = PublishRelay<Coordinate>()
@@ -22,28 +22,28 @@ final class PlaceAddMapViewModel: PlaceAddMapViewModelType {
     private var placePoint: Coordinate?
     
     init() {
-        action().viewDidLoad
+        viewDidLoad
             .bind { [weak self] in
                 guard let self = self else { return }
                 self.viewAttribute.accept(value: ())
             }
             .disposed(by: disposeBag)
         
-        action().draggedPoint
+        draggedPoint
             .bind { [weak self] coordi in
                 guard let self = self else { return }
                 self.placePoint = coordi
             }
             .disposed(by: disposeBag)
         
-        action().keyboardAppear
+        keyboardAppear
             .bind { [weak self] keyboardHeight in
                 guard let self = self else { return }
                 self.updateConstraints.accept(value: keyboardHeight)
             }
             .disposed(by: disposeBag)
         
-        action().addButtonTapped
+        addButtonTapped
             .bind { [weak self] placeTitle in
                 guard let self = self else { return }
                 if let placePoint = self.placePoint {

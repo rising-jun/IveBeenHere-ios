@@ -9,6 +9,7 @@ import Foundation
 
 final class MainMapViewModel {
     var usecase: MainMapUsecase?
+    
     var viewDidLoad = PublishRelay<Void>()
     var addPostButtonTapped = PublishRelay<Void>()
     var userRequestLogin = PublishRelay<Void>()
@@ -82,7 +83,6 @@ extension MainMapViewModel {
         }
     }
 }
-
 
 extension MainMapViewModel: MainMapViewModelType {
     func action() -> MainMapViewModelInput {

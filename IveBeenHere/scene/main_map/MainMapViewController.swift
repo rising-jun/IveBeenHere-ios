@@ -31,7 +31,9 @@ final class MainMapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.viewDidLoad.accept(value: ())
+        viewModel?.action()
+            .viewDidLoad
+            .accept(value: ())
     }
     
     private var mapView: MKMapView?

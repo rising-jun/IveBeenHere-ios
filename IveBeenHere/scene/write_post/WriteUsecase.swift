@@ -14,7 +14,7 @@ final class WriteUsecase {
         firebaseManagable = FirebaseManager.shared
     }
 }
-extension WriteUsecase {
+extension WriteUsecase: WriteManager {
     func requestPlaces() {
         firebaseManagable.readPlaceDTO { [weak self] result in
             guard let self = self else { return }
@@ -34,4 +34,10 @@ extension WriteUsecase {
     func requestWriteVisitDTO(from visitDTO: VisitDTO) async throws -> Result<Void, FireBaseError> {
         try await firebaseManagable.writeVisitDTO(visitDTO: visitDTO)
     }
+}
+
+protocol WriteManager {
+    func requestPlaces()
+    func requestUploadImage(imageData: Data) async throws -> URL?
+    func requestWriteVisitDTO(from visitDTO: VisitDTO) async throws -> Result<Void, FireBaseError>
 }

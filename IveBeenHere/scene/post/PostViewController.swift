@@ -20,30 +20,34 @@ final class PostViewController: UIViewController {
         return PostViewController(nibName: Self.id, bundle: nil)
     }
     
-    var viewModel: PostViewModel? {
+    var viewModel: PostViewModelType? {
         didSet {
             binding()
         }
     }
     private let disposeBag = DisposeBag()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.viewDidLoad.accept(value: ())
+        viewModel?.action()
+            .viewDidLoad
+            .accept(value: ())
     }
 }
 extension PostViewController {
     private func binding() {
         guard let viewModel = viewModel else { return }
-        viewModel.viewAttirbute
+        viewModel.state()
+            .viewAttirbute
             .observe(on: DispatchQueue.main)
             .bind { [weak self] _ in
                 guard let self = self else { return }
                 self.viewAttribute()
             }
             .disposed(by: disposeBag)
-    
-        viewModel.contributeView
+        
+        viewModel.state()
+            .contributeView
             .observe(on: DispatchQueue.main)
             .bind { [weak self] visit in
                 guard let self = self else { return }
@@ -78,7 +82,9 @@ extension PostViewController {
     }
     
     func setDetailVisit(from visit: VisitDTO) {
-        viewModel?.receiveVisitDetail.accept(value: visit)
+        viewModel?.action()
+            .receiveVisitDetail
+            .accept(value: visit)
     }
 }
 
