@@ -1,4 +1,5 @@
 # 지금 여기있어!
+https://github.com/rising-jun/IveBeenHere-ios/wiki/About_IveBeenHere
 1. 사용자가 앱 실행 시 위치권한을 요청한다.
 2. 사용자가 게시물 작성을 시도하면, 로그인 요청을 한다.
 3. 사용자가 현재 위치를 추가하고, 포스트를 작성한다.
