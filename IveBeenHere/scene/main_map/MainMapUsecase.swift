@@ -18,6 +18,10 @@ final class MainMapUsecase {
     private let disposeBag = DisposeBag()
     
     var loginResultRelay = PublishRelay<Bool>()
+    
+    init() {
+        firebaseManager = FirebaseManager.stub(result: true)
+    }
 }
 extension MainMapUsecase: MainMapManagable {
 

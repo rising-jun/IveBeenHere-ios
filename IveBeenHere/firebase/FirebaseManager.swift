@@ -46,7 +46,7 @@ extension FirebaseManager: FirebaseManagable {
         let documentSnapshotCompletion: ((DocumentSnapshot?, Error?) -> ()) = { document, error in
             DispatchQueue.global().async {
                 guard let placeDTOJson = document?.data() else { return completion(.failure(.nilDataError)) }
-                
+
                 guard let placeDTOData = try? JSONSerialization.data(withJSONObject: placeDTOJson, options: .prettyPrinted) else {
                     return completion(.failure(.jsonParsingError))
                 }
@@ -117,6 +117,7 @@ extension FirebaseManager: FirebaseManagable {
                 guard let visitDTOs = try? JSONDecoder().decode(VisitSnap.self, from: visitDTOData).visitDTOs else {
                     return continues.resume(returning: .failure(.jsonParsingError))
                 }
+                
                 continues.resume(returning: .success(visitDTOs))
             }
             Firestore.firestore()
@@ -126,7 +127,7 @@ extension FirebaseManager: FirebaseManagable {
         }
     }
 }
-enum FireBaseError: Error{
+enum FireBaseError: Error, Equatable {
     case snapError
     case writeError
     case nilDataError
