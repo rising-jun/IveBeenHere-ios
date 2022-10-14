@@ -128,9 +128,11 @@ extension MainMapViewController {
     
     private func addVisitAnnotation(visitDTO: VisitDTO, tapRelay: PublishRelay<Void>) {
         guard let mapView = self.mapView else { return }
-        let point = PostAnnotation(visitDTO: visitDTO)
-        point.didTapRelay = tapRelay
-        mapView.addAnnotation(point)
+        DispatchQueue.main.async {
+            let point = PostAnnotation(visitDTO: visitDTO)
+            point.didTapRelay = tapRelay
+            mapView.addAnnotation(point)
+        }
     }
 }
 extension MainMapViewController: MainMapViewPresentable {

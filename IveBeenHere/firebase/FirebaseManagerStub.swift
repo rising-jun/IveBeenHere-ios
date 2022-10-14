@@ -14,23 +14,43 @@ final class FirebaseManagerStub: FirebaseManagable {
         self.testResult = testResult
     }
     
+    private func loadJSON(_ fileName: String) -> Data? {
+        guard let path = Bundle.init(for: FirebaseManagerStub.self).path(forResource: fileName, ofType: "json") else {
+            print("--- file not found : \(fileName).json")
+            return nil
+        }
+        let fileURL = URL(fileURLWithPath: path)
+        guard let data = try? Data.init(contentsOf: fileURL) else {
+            print("--- can not access the file : \(fileName).json")
+            return nil
+        }
+        return data
+    }
+    
     func uploadImage(from data: Data) async throws -> URL? {
         testResult ? URL(string: "") : nil
     }
     
     func writeVisitDTO(visitDTO: VisitDTO) async throws -> Result<Void, FireBaseError> {
-        testResult ? .success(()) : .failure(.nilDataError)
+        testResult ? .success(()) : .failure(.writeError)
     }
     
     func readVisitDTO() async -> Result<[VisitDTO], FireBaseError> {
-        testResult ? .success([VisitDTO(place: PlaceDTO(latitude: 0.0, name: "name", longitude: 0.0), date: "2022-10-13", title: "", content: "", imageURL: "imageURL", userId: "userId")]) : .failure(.nilDataError)
+        let mockData = loadJSON("MockVisitDTOs")
+        if let visitDTOs = try? JSONDecoder().decode(VisitSnap.self, from: mockData!).visitDTOs {
+            return testResult ? .success(visitDTOs) : .failure(.nilDataError)
+        }
+        return .failure(.jsonParsingError)
     }
     
     func writePlaceDTO(placeDTO: PlaceDTO, completion: @escaping (Result<FirebaseWriteResult, FireBaseError>) -> Void) {
-        testResult ? completion(.success(.success)) : completion(.failure(.nilDataError))
+        testResult ? completion(.success(.success)) : completion(.failure(.writeError))
     }
 
     func readPlaceDTO(completion: @escaping (Result<[PlaceDTO], FireBaseError>) -> Void) {
-        testResult ? completion(.success([])) : completion(.failure(.nilDataError))
+        let mockData = loadJSON("MockPlaceDTOs")
+        if let placeDTOs = try? JSONDecoder().decode(SnapInfo.self, from: mockData!).placeDTOS {
+            testResult ? completion(.success(placeDTOs)) : completion(.failure(.nilDataError))
+        }
     }
 }

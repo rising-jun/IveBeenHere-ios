@@ -40,13 +40,14 @@
 		724FE72128AF75AC00BCAD05 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE72028AF75AC00BCAD05 /* MapViewController.swift */; };
 		724FE72628AF75AD00BCAD05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 724FE72528AF75AD00BCAD05 /* Assets.xcassets */; };
 		724FE72928AF75AD00BCAD05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 724FE72728AF75AD00BCAD05 /* LaunchScreen.storyboard */; };
-		724FE73428AF75AD00BCAD05 /* IveBeenHereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE73328AF75AD00BCAD05 /* IveBeenHereTests.swift */; };
 		724FE73E28AF75AD00BCAD05 /* IveBeenHereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE73D28AF75AD00BCAD05 /* IveBeenHereUITests.swift */; };
 		724FE74028AF75AD00BCAD05 /* IveBeenHereUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE73F28AF75AD00BCAD05 /* IveBeenHereUITestsLaunchTests.swift */; };
 		724FE74D28AF772100BCAD05 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FE74C28AF772100BCAD05 /* SplashViewController.swift */; };
 		72559C0E28BA0055006F3E8F /* MainMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72559C0D28BA0055006F3E8F /* MainMapViewModel.swift */; };
 		72559C1028BA0130006F3E8F /* MainMapUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72559C0F28BA0130006F3E8F /* MainMapUsecase.swift */; };
 		72559C1228BA03B6006F3E8F /* MainMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72559C1128BA03B6006F3E8F /* MainMapBuilder.swift */; };
+		726939FC28F93271009252DC /* MockPlaceDTOs.json in Resources */ = {isa = PBXBuildFile; fileRef = 726939FB28F93271009252DC /* MockPlaceDTOs.json */; };
+		726939FE28F93437009252DC /* MockVisitDTOs.json in Resources */ = {isa = PBXBuildFile; fileRef = 726939FD28F93437009252DC /* MockVisitDTOs.json */; };
 		7289F72628BA1CF0007501A2 /* PlaceAddMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289F72528BA1CF0007501A2 /* PlaceAddMapViewModel.swift */; };
 		7289F72828BA1D02007501A2 /* PlaceAddMapUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289F72728BA1D02007501A2 /* PlaceAddMapUsecase.swift */; };
 		7289F72B28BA1D1F007501A2 /* PlaceAddMapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289F72A28BA1D1F007501A2 /* PlaceAddMapBuilder.swift */; };
@@ -61,7 +62,6 @@
 		72E8A44028F7FB4200844F8E /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E8A43F28F7FB4200844F8E /* ImageManager.swift */; };
 		72E8A44228F80FB200844F8E /* FirebaseManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E8A44128F80FB200844F8E /* FirebaseManagerStub.swift */; };
 		72F5B97C28C9C0F300DF4262 /* FirebaseManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B97B28C9C0F300DF4262 /* FirebaseManagerTest.swift */; };
-		72F5B97E28C9C61700DF4262 /* FirebaseManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B97D28C9C61700DF4262 /* FirebaseManagerStub.swift */; };
 		72FD951228EEB53F00D3F31B /* ImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FD951128EEB53F00D3F31B /* ImagePickerDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -114,7 +114,6 @@
 		724FE72828AF75AD00BCAD05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		724FE72A28AF75AD00BCAD05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724FE72F28AF75AD00BCAD05 /* IveBeenHereTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IveBeenHereTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		724FE73328AF75AD00BCAD05 /* IveBeenHereTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IveBeenHereTests.swift; sourceTree = "<group>"; };
 		724FE73928AF75AD00BCAD05 /* IveBeenHereUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IveBeenHereUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		724FE73D28AF75AD00BCAD05 /* IveBeenHereUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IveBeenHereUITests.swift; sourceTree = "<group>"; };
 		724FE73F28AF75AD00BCAD05 /* IveBeenHereUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IveBeenHereUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -122,6 +121,8 @@
 		72559C0D28BA0055006F3E8F /* MainMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewModel.swift; sourceTree = "<group>"; };
 		72559C0F28BA0130006F3E8F /* MainMapUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapUsecase.swift; sourceTree = "<group>"; };
 		72559C1128BA03B6006F3E8F /* MainMapBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapBuilder.swift; sourceTree = "<group>"; };
+		726939FB28F93271009252DC /* MockPlaceDTOs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPlaceDTOs.json; sourceTree = "<group>"; };
+		726939FD28F93437009252DC /* MockVisitDTOs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockVisitDTOs.json; sourceTree = "<group>"; };
 		7289F72528BA1CF0007501A2 /* PlaceAddMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapViewModel.swift; sourceTree = "<group>"; };
 		7289F72728BA1D02007501A2 /* PlaceAddMapUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapUsecase.swift; sourceTree = "<group>"; };
 		7289F72A28BA1D1F007501A2 /* PlaceAddMapBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddMapBuilder.swift; sourceTree = "<group>"; };
@@ -137,7 +138,6 @@
 		72E8A43F28F7FB4200844F8E /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		72E8A44128F80FB200844F8E /* FirebaseManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManagerStub.swift; sourceTree = "<group>"; };
 		72F5B97B28C9C0F300DF4262 /* FirebaseManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManagerTest.swift; sourceTree = "<group>"; };
-		72F5B97D28C9C61700DF4262 /* FirebaseManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManagerStub.swift; sourceTree = "<group>"; };
 		72FD951128EEB53F00D3F31B /* ImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -250,6 +250,7 @@
 		7245191328B5FCE900FA48A2 /* firebase */ = {
 			isa = PBXGroup;
 			children = (
+				726939FA28F93247009252DC /* mock */,
 				7245191428B5FD8A00FA48A2 /* FirebaseManager.swift */,
 				72E8A44128F80FB200844F8E /* FirebaseManagerStub.swift */,
 			);
@@ -313,9 +314,7 @@
 		724FE73228AF75AD00BCAD05 /* IveBeenHereTests */ = {
 			isa = PBXGroup;
 			children = (
-				724FE73328AF75AD00BCAD05 /* IveBeenHereTests.swift */,
-				72F5B97B28C9C0F300DF4262 /* FirebaseManagerTest.swift */,
-				72F5B97D28C9C61700DF4262 /* FirebaseManagerStub.swift */,
+				72E8A44328F8120E00844F8E /* business */,
 			);
 			path = IveBeenHereTests;
 			sourceTree = "<group>";
@@ -363,6 +362,15 @@
 			path = entry;
 			sourceTree = "<group>";
 		};
+		726939FA28F93247009252DC /* mock */ = {
+			isa = PBXGroup;
+			children = (
+				726939FB28F93271009252DC /* MockPlaceDTOs.json */,
+				726939FD28F93437009252DC /* MockVisitDTOs.json */,
+			);
+			path = mock;
+			sourceTree = "<group>";
+		};
 		72D1153D28B61C3E00F16705 /* permission */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +407,14 @@
 				72E8A43F28F7FB4200844F8E /* ImageManager.swift */,
 			);
 			path = image_managing;
+			sourceTree = "<group>";
+		};
+		72E8A44328F8120E00844F8E /* business */ = {
+			isa = PBXGroup;
+			children = (
+				72F5B97B28C9C0F300DF4262 /* FirebaseManagerTest.swift */,
+			);
+			path = business;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -524,7 +540,9 @@
 				72E3DFCD28B373F40066B5BE /* SplashViewController.xib in Resources */,
 				72E3DFD128B3775C0066B5BE /* MapViewController.xib in Resources */,
 				720DF86F28B5F54A002BAFB9 /* GoogleService-Info.plist in Resources */,
+				726939FE28F93437009252DC /* MockVisitDTOs.json in Resources */,
 				7244B8F428B9FD2C00AC9BAF /* MainMapViewController.xib in Resources */,
+				726939FC28F93271009252DC /* MockPlaceDTOs.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,9 +611,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72F5B97E28C9C61700DF4262 /* FirebaseManagerStub.swift in Sources */,
 				72F5B97C28C9C0F300DF4262 /* FirebaseManagerTest.swift in Sources */,
-				724FE73428AF75AD00BCAD05 /* IveBeenHereTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
